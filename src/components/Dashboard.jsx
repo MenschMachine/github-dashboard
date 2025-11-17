@@ -79,23 +79,25 @@ export default function Dashboard() {
   let allRedCount = 0;
   let mixedCount = 0;
 
-  const repositories = Array.from(repoMap.entries()).map(([repoName, runs]) => {
-    const sortedRuns = [...runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-    const last5 = sortedRuns.slice(0, 5);
+  const repositories = Array.from(repoMap.entries())
+    .map(([repoName, runs]) => {
+      const sortedRuns = [...runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      const last5 = sortedRuns.slice(0, 5);
 
-    const allSuccess = last5.every(r => r.conclusion === 'success');
-    const allFailure = last5.every(r => r.conclusion === 'failure');
+      const allSuccess = last5.every(r => r.conclusion === 'success');
+      const allFailure = last5.every(r => r.conclusion === 'failure');
 
-    if (allSuccess) {
-      allGreenCount++;
-    } else if (allFailure) {
-      allRedCount++;
-    } else {
-      mixedCount++;
-    }
+      if (allSuccess) {
+        allGreenCount++;
+      } else if (allFailure) {
+        allRedCount++;
+      } else {
+        mixedCount++;
+      }
 
-    return { repoName, runs };
-  });
+      return { repoName, runs: sortedRuns };
+    })
+    .sort((a, b) => new Date(b.runs[0].created_at) - new Date(a.runs[0].created_at));
 
   return (
     <div className="dashboard">
