@@ -1,0 +1,50 @@
+.build-badge {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.build-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.build-badge.success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+}
+
+.build-badge.failure {
+  background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+  color: white;
+}
+
+.build-badge.cancelled {
+  background: linear-gradient(135deg, #757f9a 0%, #d7dde8 100%);
+  color: white;
+}
+
+.build-badge .workflow-name {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  margin-bottom: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.build-badge .status {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.build-badge .date {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
