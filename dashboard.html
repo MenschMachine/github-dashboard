@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 40px;
+        }
+
+        .error {
+            background: #ff4444;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .repositories {
+            display: grid;
+            gap: 20px;
+        }
+
+        .repo-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .repo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .repo-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .repo-name .icon {
+            font-size: 1.2rem;
+        }
+
+        .status-info {
+            font-size: 0.9rem;
+            color: #666;
+            background: #f8f9fa;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .status-info.all-green {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-info.all-red {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-info.mixed {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .builds-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .build-badge {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .build-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .build-badge.success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+
+        .build-badge.failure {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+            color: white;
+        }
+
+        .build-badge.cancelled {
+            background: linear-gradient(135deg, #757f9a 0%, #d7dde8 100%);
+            color: white;
+        }
+
+        .build-badge .workflow-name {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            margin-bottom: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .build-badge .status {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .build-badge .date {
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        .additional-info {
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .additional-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .additional-info strong {
+            color: #333;
+        }
+
+        .date-highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .builds-container {
+                flex-direction: column;
+            }
+
+            .build-badge {
+                min-width: 100%;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GitHub Actions Dashboard</h1>
+            <p class="subtitle">Repository Build Status Overview</p>
+        </header>
+
+        <div id="stats" class="stats-bar"></div>
+        <div id="loading" class="loading">Loading workflow data...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="repositories" class="repositories"></div>
+    </div>
+
+    <script>
+        const DATA_FILE = 'example-data/agg-yearly-2025.json';
+
+        async function loadDashboard() {
+            try {
+                const response = await fetch(DATA_FILE);
+                if (!response.ok) {
+                    throw new Error(`Failed to load data: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                document.getElementById('loading').style.display = 'none';
+
+                processAndDisplayData(data);
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                const errorDiv = document.getElementById('error');
+                errorDiv.textContent = `Error: ${error.message}`;
+                errorDiv.style.display = 'block';
+            }
+        }
+
+        function processAndDisplayData(data) {
+            // Group runs by repository
+            const repoMap = new Map();
+
+            data.workflow_runs.forEach(run => {
+                if (!repoMap.has(run.repository)) {
+                    repoMap.set(run.repository, []);
+                }
+                repoMap.get(run.repository).push(run);
+            });
+
+            // Calculate stats
+            const totalRepos = repoMap.size;
+            let allGreenCount = 0;
+            let allRedCount = 0;
+            let mixedCount = 0;
+
+            // Process each repository
+            const reposHtml = Array.from(repoMap.entries())
+                .map(([repoName, runs]) => {
+                    // Sort by created_at descending (most recent first)
+                    runs.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+                    // Get last 5 builds
+                    const last5 = runs.slice(0, 5);
+
+                    // Get all previous builds (for finding last failure/success)
+                    const previousBuilds = runs.slice(5);
+
+                    // Check if all are success or all are failure
+                    const allSuccess = last5.every(r => r.conclusion === 'success');
+                    const allFailure = last5.every(r => r.conclusion === 'failure');
+
+                    let statusClass = 'mixed';
+                    let statusText = 'Mixed Status';
+                    let additionalInfo = '';
+
+                    if (allSuccess) {
+                        statusClass = 'all-green';
+                        statusText = 'All Green';
+                        allGreenCount++;
+
+                        // Find last failure
+                        const lastFailure = previousBuilds.find(r => r.conclusion === 'failure');
+                        if (lastFailure) {
+                            const failureDate = formatDate(lastFailure.created_at);
+                            additionalInfo = `<div class="additional-info">
+                                <p><strong>Last failure:</strong> <span class="date-highlight">${failureDate}</span> (${lastFailure.name})</p>
+                            </div>`;
+                        } else {
+                            additionalInfo = `<div class="additional-info">
+                                <p><strong>No previous failures found</strong> in recorded history</p>
+                            </div>`;
+                        }
+                    } else if (allFailure) {
+                        statusClass = 'all-red';
+                        statusText = 'All Red';
+                        allRedCount++;
+
+                        // Find last success
+                        const lastSuccess = previousBuilds.find(r => r.conclusion === 'success');
+                        if (lastSuccess) {
+                            const successDate = formatDate(lastSuccess.created_at);
+                            additionalInfo = `<div class="additional-info">
+                                <p><strong>Last success:</strong> <span class="date-highlight">${successDate}</span> (${lastSuccess.name})</p>
+                            </div>`;
+                        } else {
+                            additionalInfo = `<div class="additional-info">
+                                <p><strong>No previous successes found</strong> in recorded history</p>
+                            </div>`;
+                        }
+                    } else {
+                        mixedCount++;
+                        const successCount = last5.filter(r => r.conclusion === 'success').length;
+                        const failureCount = last5.filter(r => r.conclusion === 'failure').length;
+                        statusText = `${successCount} Success, ${failureCount} Failure`;
+                    }
+
+                    const buildsHtml = last5.map(run => {
+                        const statusClass = run.conclusion === 'success' ? 'success' :
+                                          run.conclusion === 'failure' ? 'failure' : 'cancelled';
+                        const statusText = run.conclusion.charAt(0).toUpperCase() + run.conclusion.slice(1);
+                        const date = formatDate(run.created_at);
+
+                        return `
+                            <div class="build-badge ${statusClass}">
+                                <div class="workflow-name">${run.name}</div>
+                                <div class="status">${statusText}</div>
+                                <div class="date">${date}</div>
+                            </div>
+                        `;
+                    }).join('');
+
+                    return `
+                        <div class="repo-card">
+                            <div class="repo-header">
+                                <div class="repo-name">
+                                    <span class="icon">📦</span>
+                                    ${repoName}
+                                </div>
+                                <div class="status-info ${statusClass}">${statusText}</div>
+                            </div>
+                            <div class="builds-container">
+                                ${buildsHtml}
+                            </div>
+                            ${additionalInfo}
+                        </div>
+                    `;
+                })
+                .join('');
+
+            // Display stats
+            const statsHtml = `
+                <div class="stat-card">
+                    <div class="stat-value">${totalRepos}</div>
+                    <div class="stat-label">Total Repositories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #38ef7d;">${allGreenCount}</div>
+                    <div class="stat-label">All Green</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #f45c43;">${allRedCount}</div>
+                    <div class="stat-label">All Red</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #ffc107;">${mixedCount}</div>
+                    <div class="stat-label">Mixed Status</div>
+                </div>
+            `;
+
+            document.getElementById('stats').innerHTML = statsHtml;
+            document.getElementById('repositories').innerHTML = reposHtml;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+
+            if (diffMins < 60) {
+                return `${diffMins}m ago`;
+            } else if (diffHours < 24) {
+                return `${diffHours}h ago`;
+            } else if (diffDays < 7) {
+                return `${diffDays}d ago`;
+            } else {
+                const options = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+                return date.toLocaleDateString('en-US', options);
+            }
+        }
+
+        // Load dashboard on page load
+        loadDashboard();
+    </script>
+</body>
+</html>
