@@ -1,0 +1,39 @@
+.stats-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.stat-value.stat-green {
+  color: #38ef7d;
+}
+
+.stat-value.stat-red {
+  color: #f45c43;
+}
+
+.stat-value.stat-yellow {
+  color: #ffc107;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: #666;
+  margin-top: 2px;
+}

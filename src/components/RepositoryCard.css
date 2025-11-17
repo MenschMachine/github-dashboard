@@ -1,0 +1,106 @@
+.repo-card {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s;
+}
+
+.repo-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.repo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.repo-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.repo-name a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.repo-name a:hover {
+  color: #667eea;
+}
+
+.repo-name .icon {
+  font-size: 0.9rem;
+}
+
+.status-info {
+  font-size: 0.7rem;
+  color: #666;
+  background: #f8f9fa;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.status-info.all-green {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-info.all-red {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status-info.mixed {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.builds-container {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.additional-info {
+  padding: 8px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.additional-info p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.additional-info strong {
+  color: #333;
+}
+
+.date-highlight {
+  color: #667eea;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .builds-container {
+    flex-direction: column;
+  }
+
+  .build-badge {
+    min-width: 100%;
+  }
+}
