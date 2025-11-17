@@ -15,7 +15,7 @@ export default function Dashboard() {
 
       for (const year of years) {
         try {
-          const response = await fetch(`/example-data/agg-yearly-${year}.json`);
+          const response = await fetch(`https://github-repository-status.thefamouscat.com/agg-yearly-${year}.json`);
           if (response.ok) {
             const jsonData = await response.json();
             setData(jsonData);
