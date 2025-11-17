@@ -72,12 +72,16 @@ export default function RepositoryCard({ repoName, runs }) {
     statusText = `${successCount} Success, ${failureCount} Failure`;
   }
 
+  const repoUrl = `https://github.com/${repoName}`;
+
   return (
     <div className="repo-card">
       <div className="repo-header">
         <div className="repo-name">
           <span className="icon">📦</span>
-          {repoName}
+          <a href={repoUrl} target="_blank" rel="noopener noreferrer">
+            {repoName}
+          </a>
         </div>
         <div className={`status-info ${statusClass}`}>{statusText}</div>
       </div>

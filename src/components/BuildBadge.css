@@ -1,17 +1,19 @@
 .build-badge {
   flex: 1;
-  min-width: 140px;
-  padding: 12px;
-  border-radius: 8px;
+  min-width: 100px;
+  padding: 6px 8px;
+  border-radius: 6px;
   text-align: center;
-  transition: all 0.2s;
+  transition: all 0.15s;
   cursor: pointer;
   position: relative;
+  text-decoration: none;
+  display: block;
 }
 
 .build-badge:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.03);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .build-badge.success {
@@ -30,21 +32,21 @@
 }
 
 .build-badge .workflow-name {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   opacity: 0.9;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .build-badge .status {
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .build-badge .date {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   opacity: 0.85;
 }
