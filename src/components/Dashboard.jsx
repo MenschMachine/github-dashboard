@@ -10,18 +10,26 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function loadData() {
-      try {
-        const response = await fetch('/example-data/agg-yearly-2025.json');
-        if (!response.ok) {
-          throw new Error(`Failed to load data: ${response.statusText}`);
+      const currentYear = new Date().getFullYear();
+      const years = [currentYear, currentYear - 1]; // Try current year, then previous year
+
+      for (const year of years) {
+        try {
+          const response = await fetch(`/example-data/agg-yearly-${year}.json`);
+          if (response.ok) {
+            const jsonData = await response.json();
+            setData(jsonData);
+            setLoading(false);
+            return;
+          }
+        } catch (err) {
+          // Continue to next year
         }
-        const jsonData = await response.json();
-        setData(jsonData);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
       }
+
+      // If we get here, no data file was found
+      setError('No data file found for current or previous year');
+      setLoading(false);
     }
 
     loadData();
