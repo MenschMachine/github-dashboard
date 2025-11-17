@@ -1,0 +1,1407 @@
+{
+  "id": 19352209263,
+  "name": "Build",
+  "node_id": "WFR_kwLOPnM3cc8AAAAEgXtHbw",
+  "head_branch": "main",
+  "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+  "path": ".github/workflows/build.yml",
+  "display_title": "docs: Add API gaps report for Java SDK 0.1.2",
+  "run_number": 45,
+  "event": "push",
+  "status": "completed",
+  "conclusion": "failure",
+  "workflow_id": 203417144,
+  "check_suite_id": 49881994717,
+  "check_suite_node_id": "CS_kwDOPnM3cc8AAAALnTLV3Q",
+  "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+  "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+  "pull_requests": [],
+  "created_at": "2025-11-14T02:21:59Z",
+  "updated_at": "2025-11-14T02:34:52Z",
+  "actor": {
+    "login": "mlahr",
+    "id": 588035,
+    "node_id": "MDQ6VXNlcjU4ODAzNQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/588035?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mlahr",
+    "html_url": "https://github.com/mlahr",
+    "followers_url": "https://api.github.com/users/mlahr/followers",
+    "following_url": "https://api.github.com/users/mlahr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mlahr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mlahr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mlahr/subscriptions",
+    "organizations_url": "https://api.github.com/users/mlahr/orgs",
+    "repos_url": "https://api.github.com/users/mlahr/repos",
+    "events_url": "https://api.github.com/users/mlahr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mlahr/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "run_attempt": 1,
+  "referenced_workflows": [],
+  "run_started_at": "2025-11-14T02:21:59Z",
+  "triggering_actor": {
+    "login": "mlahr",
+    "id": 588035,
+    "node_id": "MDQ6VXNlcjU4ODAzNQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/588035?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mlahr",
+    "html_url": "https://github.com/mlahr",
+    "followers_url": "https://api.github.com/users/mlahr/followers",
+    "following_url": "https://api.github.com/users/mlahr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mlahr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mlahr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mlahr/subscriptions",
+    "organizations_url": "https://api.github.com/users/mlahr/orgs",
+    "repos_url": "https://api.github.com/users/mlahr/repos",
+    "events_url": "https://api.github.com/users/mlahr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mlahr/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "jobs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/jobs",
+  "logs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/logs",
+  "check_suite_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-suites/49881994717",
+  "artifacts_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/artifacts",
+  "cancel_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/cancel",
+  "rerun_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/rerun",
+  "previous_attempt_url": null,
+  "workflow_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/workflows/203417144",
+  "head_commit": {
+    "id": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+    "tree_id": "d574a550db520971b860b3eb6962546af5fc2e02",
+    "message": "docs: Add API gaps report for Java SDK 0.1.2",
+    "timestamp": "2025-11-14T02:21:51Z",
+    "author": {
+      "name": "Michael Lahr",
+      "email": "michael.lahr@gmail.com"
+    },
+    "committer": {
+      "name": "Michael Lahr (aider)",
+      "email": "michael.lahr@gmail.com"
+    }
+  },
+  "repository": {
+    "id": 1047738225,
+    "node_id": "R_kgDOPnM3cQ",
+    "name": "pdfdancer-client-java",
+    "full_name": "MenschMachine/pdfdancer-client-java",
+    "private": false,
+    "owner": {
+      "login": "MenschMachine",
+      "id": 165865050,
+      "node_id": "O_kgDOCeLmWg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/165865050?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MenschMachine",
+      "html_url": "https://github.com/MenschMachine",
+      "followers_url": "https://api.github.com/users/MenschMachine/followers",
+      "following_url": "https://api.github.com/users/MenschMachine/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MenschMachine/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MenschMachine/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MenschMachine/subscriptions",
+      "organizations_url": "https://api.github.com/users/MenschMachine/orgs",
+      "repos_url": "https://api.github.com/users/MenschMachine/repos",
+      "events_url": "https://api.github.com/users/MenschMachine/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MenschMachine/received_events",
+      "type": "Organization",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/MenschMachine/pdfdancer-client-java",
+    "description": null,
+    "fork": false,
+    "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java",
+    "forks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/forks",
+    "keys_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/teams",
+    "hooks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/hooks",
+    "issue_events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/events",
+    "assignees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/tags",
+    "blobs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/languages",
+    "stargazers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/stargazers",
+    "contributors_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/contributors",
+    "subscribers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/subscribers",
+    "subscription_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/subscription",
+    "commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/merges",
+    "archive_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/downloads",
+    "issues_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/labels{/name}",
+    "releases_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/deployments"
+  },
+  "head_repository": {
+    "id": 1047738225,
+    "node_id": "R_kgDOPnM3cQ",
+    "name": "pdfdancer-client-java",
+    "full_name": "MenschMachine/pdfdancer-client-java",
+    "private": false,
+    "owner": {
+      "login": "MenschMachine",
+      "id": 165865050,
+      "node_id": "O_kgDOCeLmWg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/165865050?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MenschMachine",
+      "html_url": "https://github.com/MenschMachine",
+      "followers_url": "https://api.github.com/users/MenschMachine/followers",
+      "following_url": "https://api.github.com/users/MenschMachine/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MenschMachine/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MenschMachine/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MenschMachine/subscriptions",
+      "organizations_url": "https://api.github.com/users/MenschMachine/orgs",
+      "repos_url": "https://api.github.com/users/MenschMachine/repos",
+      "events_url": "https://api.github.com/users/MenschMachine/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MenschMachine/received_events",
+      "type": "Organization",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/MenschMachine/pdfdancer-client-java",
+    "description": null,
+    "fork": false,
+    "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java",
+    "forks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/forks",
+    "keys_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/teams",
+    "hooks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/hooks",
+    "issue_events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/events",
+    "assignees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/tags",
+    "blobs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/languages",
+    "stargazers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/stargazers",
+    "contributors_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/contributors",
+    "subscribers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/subscribers",
+    "subscription_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/subscription",
+    "commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/merges",
+    "archive_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/downloads",
+    "issues_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/labels{/name}",
+    "releases_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/deployments"
+  },
+  "jobs": [
+    {
+      "id": 55366113459,
+      "run_id": 19352209263,
+      "workflow_name": "Build",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPnM3cc8AAAAM5BPYsw",
+      "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/jobs/55366113459",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/job/55366113459",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-14T02:21:59Z",
+      "started_at": "2025-11-14T02:22:02Z",
+      "completed_at": "2025-11-14T02:34:13Z",
+      "name": "build-full-matrix (ubuntu-latest, 11)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T02:22:02Z",
+          "completed_at": "2025-11-14T02:22:04Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T02:22:04Z",
+          "completed_at": "2025-11-14T02:22:05Z"
+        },
+        {
+          "name": "Set up JDK 11",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T02:22:05Z",
+          "completed_at": "2025-11-14T02:22:05Z"
+        },
+        {
+          "name": "Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T02:22:05Z",
+          "completed_at": "2025-11-14T02:22:09Z"
+        },
+        {
+          "name": "Make gradlew executable",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-14T02:22:09Z",
+          "completed_at": "2025-11-14T02:22:09Z"
+        },
+        {
+          "name": "Run build",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6,
+          "started_at": "2025-11-14T02:22:09Z",
+          "completed_at": "2025-11-14T02:34:09Z"
+        },
+        {
+          "name": "Run build (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-14T02:34:09Z",
+          "completed_at": "2025-11-14T02:34:09Z"
+        },
+        {
+          "name": "Upload build reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T02:34:09Z",
+          "completed_at": "2025-11-14T02:34:10Z"
+        },
+        {
+          "name": "Post Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2025-11-14T02:34:10Z",
+          "completed_at": "2025-11-14T02:34:11Z"
+        },
+        {
+          "name": "Post Set up JDK 11",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-14T02:34:11Z",
+          "completed_at": "2025-11-14T02:34:12Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-14T02:34:12Z",
+          "completed_at": "2025-11-14T02:34:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-14T02:34:12Z",
+          "completed_at": "2025-11-14T02:34:12Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-runs/55366113459",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001856,
+      "runner_name": "GitHub Actions 1000001856",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55366113460,
+      "run_id": 19352209263,
+      "workflow_name": "Build",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPnM3cc8AAAAM5BPYtA",
+      "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/jobs/55366113460",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/job/55366113460",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-14T02:21:59Z",
+      "started_at": "2025-11-14T02:22:02Z",
+      "completed_at": "2025-11-14T02:34:27Z",
+      "name": "build-full-matrix (ubuntu-latest, 23)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T02:22:02Z",
+          "completed_at": "2025-11-14T02:22:05Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T02:22:05Z",
+          "completed_at": "2025-11-14T02:22:05Z"
+        },
+        {
+          "name": "Set up JDK 23",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T02:22:05Z",
+          "completed_at": "2025-11-14T02:22:11Z"
+        },
+        {
+          "name": "Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T02:22:11Z",
+          "completed_at": "2025-11-14T02:22:13Z"
+        },
+        {
+          "name": "Make gradlew executable",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-14T02:22:13Z",
+          "completed_at": "2025-11-14T02:22:13Z"
+        },
+        {
+          "name": "Run build",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6,
+          "started_at": "2025-11-14T02:22:13Z",
+          "completed_at": "2025-11-14T02:34:23Z"
+        },
+        {
+          "name": "Run build (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-14T02:34:23Z",
+          "completed_at": "2025-11-14T02:34:23Z"
+        },
+        {
+          "name": "Upload build reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T02:34:23Z",
+          "completed_at": "2025-11-14T02:34:24Z"
+        },
+        {
+          "name": "Post Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2025-11-14T02:34:24Z",
+          "completed_at": "2025-11-14T02:34:25Z"
+        },
+        {
+          "name": "Post Set up JDK 23",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-14T02:34:25Z",
+          "completed_at": "2025-11-14T02:34:26Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-14T02:34:26Z",
+          "completed_at": "2025-11-14T02:34:26Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-14T02:34:26Z",
+          "completed_at": "2025-11-14T02:34:26Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-runs/55366113460",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001855,
+      "runner_name": "GitHub Actions 1000001855",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55366113471,
+      "run_id": 19352209263,
+      "workflow_name": "Build",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPnM3cc8AAAAM5BPYvw",
+      "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/jobs/55366113471",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/job/55366113471",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-14T02:21:59Z",
+      "started_at": "2025-11-14T02:22:01Z",
+      "completed_at": "2025-11-14T02:34:37Z",
+      "name": "build-full-matrix (windows-latest, 21)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T02:22:02Z",
+          "completed_at": "2025-11-14T02:22:04Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T02:22:04Z",
+          "completed_at": "2025-11-14T02:22:10Z"
+        },
+        {
+          "name": "Set up JDK 21",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T02:22:10Z",
+          "completed_at": "2025-11-14T02:22:11Z"
+        },
+        {
+          "name": "Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T02:22:11Z",
+          "completed_at": "2025-11-14T02:22:17Z"
+        },
+        {
+          "name": "Make gradlew executable",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2025-11-14T02:22:17Z",
+          "completed_at": "2025-11-14T02:22:17Z"
+        },
+        {
+          "name": "Run build",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2025-11-14T02:22:17Z",
+          "completed_at": "2025-11-14T02:22:17Z"
+        },
+        {
+          "name": "Run build (Windows)",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2025-11-14T02:22:17Z",
+          "completed_at": "2025-11-14T02:34:30Z"
+        },
+        {
+          "name": "Upload build reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T02:34:30Z",
+          "completed_at": "2025-11-14T02:34:31Z"
+        },
+        {
+          "name": "Post Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2025-11-14T02:34:31Z",
+          "completed_at": "2025-11-14T02:34:34Z"
+        },
+        {
+          "name": "Post Set up JDK 21",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-14T02:34:34Z",
+          "completed_at": "2025-11-14T02:34:34Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-14T02:34:34Z",
+          "completed_at": "2025-11-14T02:34:36Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-14T02:34:36Z",
+          "completed_at": "2025-11-14T02:34:36Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-runs/55366113471",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001854,
+      "runner_name": "GitHub Actions 1000001854",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55366113473,
+      "run_id": 19352209263,
+      "workflow_name": "Build",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPnM3cc8AAAAM5BPYwQ",
+      "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/jobs/55366113473",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/job/55366113473",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-14T02:21:59Z",
+      "started_at": "2025-11-14T02:22:03Z",
+      "completed_at": "2025-11-14T02:34:51Z",
+      "name": "build-full-matrix (ubuntu-latest, 21)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T02:22:03Z",
+          "completed_at": "2025-11-14T02:22:06Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T02:22:06Z",
+          "completed_at": "2025-11-14T02:22:07Z"
+        },
+        {
+          "name": "Set up JDK 21",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T02:22:07Z",
+          "completed_at": "2025-11-14T02:22:07Z"
+        },
+        {
+          "name": "Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T02:22:07Z",
+          "completed_at": "2025-11-14T02:22:13Z"
+        },
+        {
+          "name": "Make gradlew executable",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-14T02:22:13Z",
+          "completed_at": "2025-11-14T02:22:13Z"
+        },
+        {
+          "name": "Run build",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6,
+          "started_at": "2025-11-14T02:22:13Z",
+          "completed_at": "2025-11-14T02:34:44Z"
+        },
+        {
+          "name": "Run build (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-14T02:34:44Z",
+          "completed_at": "2025-11-14T02:34:44Z"
+        },
+        {
+          "name": "Upload build reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T02:34:44Z",
+          "completed_at": "2025-11-14T02:34:45Z"
+        },
+        {
+          "name": "Post Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2025-11-14T02:34:45Z",
+          "completed_at": "2025-11-14T02:34:47Z"
+        },
+        {
+          "name": "Post Set up JDK 21",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-14T02:34:47Z",
+          "completed_at": "2025-11-14T02:34:47Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-14T02:34:47Z",
+          "completed_at": "2025-11-14T02:34:48Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-14T02:34:48Z",
+          "completed_at": "2025-11-14T02:34:48Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-runs/55366113473",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001858,
+      "runner_name": "GitHub Actions 1000001858",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55366113476,
+      "run_id": 19352209263,
+      "workflow_name": "Build",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPnM3cc8AAAAM5BPYxA",
+      "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/jobs/55366113476",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/job/55366113476",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-14T02:21:59Z",
+      "started_at": "2025-11-14T02:22:01Z",
+      "completed_at": "2025-11-14T02:34:44Z",
+      "name": "build-full-matrix (windows-latest, 17)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T02:22:02Z",
+          "completed_at": "2025-11-14T02:22:05Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T02:22:05Z",
+          "completed_at": "2025-11-14T02:22:10Z"
+        },
+        {
+          "name": "Set up JDK 17",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T02:22:10Z",
+          "completed_at": "2025-11-14T02:22:10Z"
+        },
+        {
+          "name": "Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T02:22:10Z",
+          "completed_at": "2025-11-14T02:22:20Z"
+        },
+        {
+          "name": "Make gradlew executable",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2025-11-14T02:22:20Z",
+          "completed_at": "2025-11-14T02:22:20Z"
+        },
+        {
+          "name": "Run build",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2025-11-14T02:22:20Z",
+          "completed_at": "2025-11-14T02:22:20Z"
+        },
+        {
+          "name": "Run build (Windows)",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2025-11-14T02:22:20Z",
+          "completed_at": "2025-11-14T02:34:36Z"
+        },
+        {
+          "name": "Upload build reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T02:34:36Z",
+          "completed_at": "2025-11-14T02:34:37Z"
+        },
+        {
+          "name": "Post Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2025-11-14T02:34:37Z",
+          "completed_at": "2025-11-14T02:34:41Z"
+        },
+        {
+          "name": "Post Set up JDK 17",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-14T02:34:41Z",
+          "completed_at": "2025-11-14T02:34:41Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-14T02:34:41Z",
+          "completed_at": "2025-11-14T02:34:42Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-14T02:34:42Z",
+          "completed_at": "2025-11-14T02:34:42Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-runs/55366113476",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001859,
+      "runner_name": "GitHub Actions 1000001859",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55366113490,
+      "run_id": 19352209263,
+      "workflow_name": "Build",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPnM3cc8AAAAM5BPY0g",
+      "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/jobs/55366113490",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/job/55366113490",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-14T02:21:59Z",
+      "started_at": "2025-11-14T02:22:02Z",
+      "completed_at": "2025-11-14T02:34:44Z",
+      "name": "build-full-matrix (ubuntu-latest, 17)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T02:22:03Z",
+          "completed_at": "2025-11-14T02:22:06Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T02:22:06Z",
+          "completed_at": "2025-11-14T02:22:07Z"
+        },
+        {
+          "name": "Set up JDK 17",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T02:22:07Z",
+          "completed_at": "2025-11-14T02:22:07Z"
+        },
+        {
+          "name": "Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T02:22:07Z",
+          "completed_at": "2025-11-14T02:22:13Z"
+        },
+        {
+          "name": "Make gradlew executable",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-14T02:22:13Z",
+          "completed_at": "2025-11-14T02:22:13Z"
+        },
+        {
+          "name": "Run build",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6,
+          "started_at": "2025-11-14T02:22:13Z",
+          "completed_at": "2025-11-14T02:34:38Z"
+        },
+        {
+          "name": "Run build (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-14T02:34:38Z",
+          "completed_at": "2025-11-14T02:34:38Z"
+        },
+        {
+          "name": "Upload build reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T02:34:38Z",
+          "completed_at": "2025-11-14T02:34:39Z"
+        },
+        {
+          "name": "Post Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2025-11-14T02:34:39Z",
+          "completed_at": "2025-11-14T02:34:41Z"
+        },
+        {
+          "name": "Post Set up JDK 17",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-14T02:34:41Z",
+          "completed_at": "2025-11-14T02:34:41Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-14T02:34:41Z",
+          "completed_at": "2025-11-14T02:34:41Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-14T02:34:41Z",
+          "completed_at": "2025-11-14T02:34:41Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-runs/55366113490",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001857,
+      "runner_name": "GitHub Actions 1000001857",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55366113500,
+      "run_id": 19352209263,
+      "workflow_name": "Build",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPnM3cc8AAAAM5BPY3A",
+      "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/jobs/55366113500",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/job/55366113500",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-14T02:21:59Z",
+      "started_at": "2025-11-14T02:22:02Z",
+      "completed_at": "2025-11-14T02:34:47Z",
+      "name": "build-full-matrix (windows-latest, 23)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T02:22:02Z",
+          "completed_at": "2025-11-14T02:22:05Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T02:22:05Z",
+          "completed_at": "2025-11-14T02:22:12Z"
+        },
+        {
+          "name": "Set up JDK 23",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T02:22:12Z",
+          "completed_at": "2025-11-14T02:22:26Z"
+        },
+        {
+          "name": "Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T02:22:26Z",
+          "completed_at": "2025-11-14T02:22:32Z"
+        },
+        {
+          "name": "Make gradlew executable",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2025-11-14T02:22:32Z",
+          "completed_at": "2025-11-14T02:22:32Z"
+        },
+        {
+          "name": "Run build",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2025-11-14T02:22:32Z",
+          "completed_at": "2025-11-14T02:22:32Z"
+        },
+        {
+          "name": "Run build (Windows)",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2025-11-14T02:22:32Z",
+          "completed_at": "2025-11-14T02:34:38Z"
+        },
+        {
+          "name": "Upload build reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T02:34:38Z",
+          "completed_at": "2025-11-14T02:34:39Z"
+        },
+        {
+          "name": "Post Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2025-11-14T02:34:39Z",
+          "completed_at": "2025-11-14T02:34:43Z"
+        },
+        {
+          "name": "Post Set up JDK 23",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-14T02:34:43Z",
+          "completed_at": "2025-11-14T02:34:43Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-14T02:34:43Z",
+          "completed_at": "2025-11-14T02:34:44Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-14T02:34:44Z",
+          "completed_at": "2025-11-14T02:34:45Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-runs/55366113500",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001860,
+      "runner_name": "GitHub Actions 1000001860",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55366113501,
+      "run_id": 19352209263,
+      "workflow_name": "Build",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPnM3cc8AAAAM5BPY3Q",
+      "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/jobs/55366113501",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/job/55366113501",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-14T02:21:59Z",
+      "started_at": "2025-11-14T02:22:01Z",
+      "completed_at": "2025-11-14T02:34:34Z",
+      "name": "build-full-matrix (windows-latest, 11)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T02:22:02Z",
+          "completed_at": "2025-11-14T02:22:05Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T02:22:05Z",
+          "completed_at": "2025-11-14T02:22:10Z"
+        },
+        {
+          "name": "Set up JDK 11",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T02:22:10Z",
+          "completed_at": "2025-11-14T02:22:10Z"
+        },
+        {
+          "name": "Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T02:22:10Z",
+          "completed_at": "2025-11-14T02:22:16Z"
+        },
+        {
+          "name": "Make gradlew executable",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2025-11-14T02:22:16Z",
+          "completed_at": "2025-11-14T02:22:16Z"
+        },
+        {
+          "name": "Run build",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2025-11-14T02:22:16Z",
+          "completed_at": "2025-11-14T02:22:16Z"
+        },
+        {
+          "name": "Run build (Windows)",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2025-11-14T02:22:16Z",
+          "completed_at": "2025-11-14T02:34:26Z"
+        },
+        {
+          "name": "Upload build reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T02:34:26Z",
+          "completed_at": "2025-11-14T02:34:27Z"
+        },
+        {
+          "name": "Post Setup Gradle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2025-11-14T02:34:27Z",
+          "completed_at": "2025-11-14T02:34:30Z"
+        },
+        {
+          "name": "Post Set up JDK 11",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-14T02:34:30Z",
+          "completed_at": "2025-11-14T02:34:31Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-14T02:34:31Z",
+          "completed_at": "2025-11-14T02:34:33Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-14T02:34:33Z",
+          "completed_at": "2025-11-14T02:34:33Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-runs/55366113501",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001861,
+      "runner_name": "GitHub Actions 1000001861",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55366113720,
+      "run_id": 19352209263,
+      "workflow_name": "Build",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/runs/19352209263",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPnM3cc8AAAAM5BPZuA",
+      "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/jobs/55366113720",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-java/actions/runs/19352209263/job/55366113720",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2025-11-14T02:21:59Z",
+      "started_at": "2025-11-14T02:21:59Z",
+      "completed_at": "2025-11-14T02:21:59Z",
+      "name": "build",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/check-runs/55366113720",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 4563906905,
+      "node_id": "MDg6QXJ0aWZhY3Q0NTYzOTA2OTA1",
+      "name": "build-reports-45-ubuntu-latest-jdk11",
+      "size_in_bytes": 106840,
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563906905",
+      "archive_download_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563906905/zip",
+      "expired": false,
+      "digest": "sha256:e9e3c463612c825a0f7aaa12679a3a7a74a34e594854ec013cc2f345df455be4",
+      "created_at": "2025-11-14T02:34:09Z",
+      "updated_at": "2025-11-14T02:34:09Z",
+      "expires_at": "2025-11-21T02:34:09Z",
+      "workflow_run": {
+        "id": 19352209263,
+        "repository_id": 1047738225,
+        "head_repository_id": 1047738225,
+        "head_branch": "main",
+        "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729"
+      }
+    },
+    {
+      "id": 4563908893,
+      "node_id": "MDg6QXJ0aWZhY3Q0NTYzOTA4ODkz",
+      "name": "build-reports-45-ubuntu-latest-jdk23",
+      "size_in_bytes": 106840,
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563908893",
+      "archive_download_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563908893/zip",
+      "expired": false,
+      "digest": "sha256:4a77155cc351d99c4c5da036445180eb1a537769bead0b44ec606d2dec51c563",
+      "created_at": "2025-11-14T02:34:24Z",
+      "updated_at": "2025-11-14T02:34:24Z",
+      "expires_at": "2025-11-21T02:34:24Z",
+      "workflow_run": {
+        "id": 19352209263,
+        "repository_id": 1047738225,
+        "head_repository_id": 1047738225,
+        "head_branch": "main",
+        "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729"
+      }
+    },
+    {
+      "id": 4563909453,
+      "node_id": "MDg6QXJ0aWZhY3Q0NTYzOTA5NDUz",
+      "name": "build-reports-45-windows-latest-jdk11",
+      "size_in_bytes": 107405,
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563909453",
+      "archive_download_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563909453/zip",
+      "expired": false,
+      "digest": "sha256:5370e13c916ce5838f3f729970680e4a458d8bb741f01594ff7909df086b87a5",
+      "created_at": "2025-11-14T02:34:27Z",
+      "updated_at": "2025-11-14T02:34:27Z",
+      "expires_at": "2025-11-21T02:34:26Z",
+      "workflow_run": {
+        "id": 19352209263,
+        "repository_id": 1047738225,
+        "head_repository_id": 1047738225,
+        "head_branch": "main",
+        "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729"
+      }
+    },
+    {
+      "id": 4563910110,
+      "node_id": "MDg6QXJ0aWZhY3Q0NTYzOTEwMTEw",
+      "name": "build-reports-45-windows-latest-jdk21",
+      "size_in_bytes": 107155,
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563910110",
+      "archive_download_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563910110/zip",
+      "expired": false,
+      "digest": "sha256:58b9a6103533a47bbc456f87539a8bec75ef46dc1df1764533465bab0a3b04e1",
+      "created_at": "2025-11-14T02:34:31Z",
+      "updated_at": "2025-11-14T02:34:31Z",
+      "expires_at": "2025-11-21T02:34:31Z",
+      "workflow_run": {
+        "id": 19352209263,
+        "repository_id": 1047738225,
+        "head_repository_id": 1047738225,
+        "head_branch": "main",
+        "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729"
+      }
+    },
+    {
+      "id": 4563910873,
+      "node_id": "MDg6QXJ0aWZhY3Q0NTYzOTEwODcz",
+      "name": "build-reports-45-windows-latest-jdk17",
+      "size_in_bytes": 106905,
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563910873",
+      "archive_download_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563910873/zip",
+      "expired": false,
+      "digest": "sha256:5360eb5f1ac6ed0ed142a714d835c9fc439ef8b1d25c6d1722e79cec674348d8",
+      "created_at": "2025-11-14T02:34:37Z",
+      "updated_at": "2025-11-14T02:34:37Z",
+      "expires_at": "2025-11-21T02:34:37Z",
+      "workflow_run": {
+        "id": 19352209263,
+        "repository_id": 1047738225,
+        "head_repository_id": 1047738225,
+        "head_branch": "main",
+        "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729"
+      }
+    },
+    {
+      "id": 4563911039,
+      "node_id": "MDg6QXJ0aWZhY3Q0NTYzOTExMDM5",
+      "name": "build-reports-45-ubuntu-latest-jdk17",
+      "size_in_bytes": 107028,
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563911039",
+      "archive_download_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563911039/zip",
+      "expired": false,
+      "digest": "sha256:1e01c37425944cef773aae3a127ddd3fe171819f7d7175ac92a30cd60689b04c",
+      "created_at": "2025-11-14T02:34:39Z",
+      "updated_at": "2025-11-14T02:34:39Z",
+      "expires_at": "2025-11-21T02:34:38Z",
+      "workflow_run": {
+        "id": 19352209263,
+        "repository_id": 1047738225,
+        "head_repository_id": 1047738225,
+        "head_branch": "main",
+        "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729"
+      }
+    },
+    {
+      "id": 4563911102,
+      "node_id": "MDg6QXJ0aWZhY3Q0NTYzOTExMTAy",
+      "name": "build-reports-45-windows-latest-jdk23",
+      "size_in_bytes": 107110,
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563911102",
+      "archive_download_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563911102/zip",
+      "expired": false,
+      "digest": "sha256:e6235971a9885ac1225e4ac4c0327f236b47d036c528e31d5f2bd676f83f7662",
+      "created_at": "2025-11-14T02:34:39Z",
+      "updated_at": "2025-11-14T02:34:39Z",
+      "expires_at": "2025-11-21T02:34:39Z",
+      "workflow_run": {
+        "id": 19352209263,
+        "repository_id": 1047738225,
+        "head_repository_id": 1047738225,
+        "head_branch": "main",
+        "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729"
+      }
+    },
+    {
+      "id": 4563911723,
+      "node_id": "MDg6QXJ0aWZhY3Q0NTYzOTExNzIz",
+      "name": "build-reports-45-ubuntu-latest-jdk21",
+      "size_in_bytes": 106907,
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563911723",
+      "archive_download_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-java/actions/artifacts/4563911723/zip",
+      "expired": false,
+      "digest": "sha256:1a46eef6f0494b40545071bb1874ff952a411757cd09aff6f6ca38ee479363f6",
+      "created_at": "2025-11-14T02:34:45Z",
+      "updated_at": "2025-11-14T02:34:45Z",
+      "expires_at": "2025-11-21T02:34:44Z",
+      "workflow_run": {
+        "id": 19352209263,
+        "repository_id": 1047738225,
+        "head_repository_id": 1047738225,
+        "head_branch": "main",
+        "head_sha": "b5d0a1a5c6bbc59ffe5809d3cb8e8eb47ffff729"
+      }
+    }
+  ]
+}

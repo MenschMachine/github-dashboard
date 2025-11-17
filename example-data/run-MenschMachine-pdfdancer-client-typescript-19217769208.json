@@ -1,0 +1,950 @@
+{
+  "id": 19217769208,
+  "name": "CI",
+  "node_id": "WFR_kwLOPyHkB88AAAAEeXfi-A",
+  "head_branch": "main",
+  "head_sha": "7cb64f7a87b9a6c6f43c08f4f287229d098ad6fd",
+  "path": ".github/workflows/ci.yml",
+  "display_title": "1.0.16",
+  "run_number": 61,
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "workflow_id": 190592719,
+  "check_suite_id": 49505308235,
+  "check_suite_node_id": "CS_kwDOPyHkB88AAAALhr8OSw",
+  "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208",
+  "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208",
+  "pull_requests": [],
+  "created_at": "2025-11-10T01:27:51Z",
+  "updated_at": "2025-11-10T02:28:12Z",
+  "actor": {
+    "login": "mlahr",
+    "id": 588035,
+    "node_id": "MDQ6VXNlcjU4ODAzNQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/588035?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mlahr",
+    "html_url": "https://github.com/mlahr",
+    "followers_url": "https://api.github.com/users/mlahr/followers",
+    "following_url": "https://api.github.com/users/mlahr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mlahr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mlahr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mlahr/subscriptions",
+    "organizations_url": "https://api.github.com/users/mlahr/orgs",
+    "repos_url": "https://api.github.com/users/mlahr/repos",
+    "events_url": "https://api.github.com/users/mlahr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mlahr/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "run_attempt": 2,
+  "referenced_workflows": [],
+  "run_started_at": "2025-11-10T02:23:41Z",
+  "triggering_actor": {
+    "login": "mlahr",
+    "id": 588035,
+    "node_id": "MDQ6VXNlcjU4ODAzNQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/588035?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mlahr",
+    "html_url": "https://github.com/mlahr",
+    "followers_url": "https://api.github.com/users/mlahr/followers",
+    "following_url": "https://api.github.com/users/mlahr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mlahr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mlahr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mlahr/subscriptions",
+    "organizations_url": "https://api.github.com/users/mlahr/orgs",
+    "repos_url": "https://api.github.com/users/mlahr/repos",
+    "events_url": "https://api.github.com/users/mlahr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mlahr/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "jobs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/jobs",
+  "logs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/logs",
+  "check_suite_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/check-suites/49505308235",
+  "artifacts_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/artifacts",
+  "cancel_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/cancel",
+  "rerun_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/rerun",
+  "previous_attempt_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/attempts/1",
+  "workflow_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/workflows/190592719",
+  "head_commit": {
+    "id": "7cb64f7a87b9a6c6f43c08f4f287229d098ad6fd",
+    "tree_id": "b93c2b0b46c68e71da0bb52b5160ab074c8f450d",
+    "message": "1.0.16",
+    "timestamp": "2025-11-10T01:27:45Z",
+    "author": {
+      "name": "Michael Lahr",
+      "email": "michael.lahr@gmail.com"
+    },
+    "committer": {
+      "name": "Michael Lahr",
+      "email": "michael.lahr@gmail.com"
+    }
+  },
+  "repository": {
+    "id": 1059185671,
+    "node_id": "R_kgDOPyHkBw",
+    "name": "pdfdancer-client-typescript",
+    "full_name": "MenschMachine/pdfdancer-client-typescript",
+    "private": false,
+    "owner": {
+      "login": "MenschMachine",
+      "id": 165865050,
+      "node_id": "O_kgDOCeLmWg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/165865050?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MenschMachine",
+      "html_url": "https://github.com/MenschMachine",
+      "followers_url": "https://api.github.com/users/MenschMachine/followers",
+      "following_url": "https://api.github.com/users/MenschMachine/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MenschMachine/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MenschMachine/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MenschMachine/subscriptions",
+      "organizations_url": "https://api.github.com/users/MenschMachine/orgs",
+      "repos_url": "https://api.github.com/users/MenschMachine/repos",
+      "events_url": "https://api.github.com/users/MenschMachine/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MenschMachine/received_events",
+      "type": "Organization",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript",
+    "description": null,
+    "fork": false,
+    "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript",
+    "forks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/forks",
+    "keys_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/teams",
+    "hooks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/hooks",
+    "issue_events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/events",
+    "assignees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/tags",
+    "blobs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/languages",
+    "stargazers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/stargazers",
+    "contributors_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/contributors",
+    "subscribers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/subscribers",
+    "subscription_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/subscription",
+    "commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/merges",
+    "archive_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/downloads",
+    "issues_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/labels{/name}",
+    "releases_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/deployments"
+  },
+  "head_repository": {
+    "id": 1059185671,
+    "node_id": "R_kgDOPyHkBw",
+    "name": "pdfdancer-client-typescript",
+    "full_name": "MenschMachine/pdfdancer-client-typescript",
+    "private": false,
+    "owner": {
+      "login": "MenschMachine",
+      "id": 165865050,
+      "node_id": "O_kgDOCeLmWg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/165865050?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MenschMachine",
+      "html_url": "https://github.com/MenschMachine",
+      "followers_url": "https://api.github.com/users/MenschMachine/followers",
+      "following_url": "https://api.github.com/users/MenschMachine/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MenschMachine/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MenschMachine/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MenschMachine/subscriptions",
+      "organizations_url": "https://api.github.com/users/MenschMachine/orgs",
+      "repos_url": "https://api.github.com/users/MenschMachine/repos",
+      "events_url": "https://api.github.com/users/MenschMachine/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MenschMachine/received_events",
+      "type": "Organization",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript",
+    "description": null,
+    "fork": false,
+    "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript",
+    "forks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/forks",
+    "keys_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/teams",
+    "hooks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/hooks",
+    "issue_events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/events",
+    "assignees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/tags",
+    "blobs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/languages",
+    "stargazers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/stargazers",
+    "contributors_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/contributors",
+    "subscribers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/subscribers",
+    "subscription_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/subscription",
+    "commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/merges",
+    "archive_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/downloads",
+    "issues_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/labels{/name}",
+    "releases_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/deployments"
+  },
+  "jobs": [
+    {
+      "id": 54932155537,
+      "run_id": 19217769208,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyHkB88AAAAMyjYskQ",
+      "head_sha": "7cb64f7a87b9a6c6f43c08f4f287229d098ad6fd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/jobs/54932155537",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/job/54932155537",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-10T02:23:43Z",
+      "started_at": "2025-11-10T02:23:45Z",
+      "completed_at": "2025-11-10T02:26:24Z",
+      "name": "test-full-matrix (ubuntu-latest, 24.x)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-10T02:23:45Z",
+          "completed_at": "2025-11-10T02:23:46Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-10T02:23:46Z",
+          "completed_at": "2025-11-10T02:23:46Z"
+        },
+        {
+          "name": "Use Node.js 24.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-10T02:23:46Z",
+          "completed_at": "2025-11-10T02:23:47Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-10T02:23:47Z",
+          "completed_at": "2025-11-10T02:23:51Z"
+        },
+        {
+          "name": "Run linter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-10T02:23:51Z",
+          "completed_at": "2025-11-10T02:23:53Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-10T02:23:53Z",
+          "completed_at": "2025-11-10T02:23:55Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2025-11-10T02:23:55Z",
+          "completed_at": "2025-11-10T02:26:23Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2025-11-10T02:26:23Z",
+          "completed_at": "2025-11-10T02:26:23Z"
+        },
+        {
+          "name": "Post Use Node.js 24.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-10T02:26:23Z",
+          "completed_at": "2025-11-10T02:26:23Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-10T02:26:23Z",
+          "completed_at": "2025-11-10T02:26:23Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-10T02:26:23Z",
+          "completed_at": "2025-11-10T02:26:23Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/check-runs/54932155537",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001317,
+      "runner_name": "GitHub Actions 1000001317",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 54932155538,
+      "run_id": 19217769208,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyHkB88AAAAMyjYskg",
+      "head_sha": "7cb64f7a87b9a6c6f43c08f4f287229d098ad6fd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/jobs/54932155538",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/job/54932155538",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-10T02:23:43Z",
+      "started_at": "2025-11-10T02:23:46Z",
+      "completed_at": "2025-11-10T02:28:11Z",
+      "name": "test-full-matrix (windows-latest, 20.x)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-10T02:23:47Z",
+          "completed_at": "2025-11-10T02:23:49Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-10T02:23:49Z",
+          "completed_at": "2025-11-10T02:23:55Z"
+        },
+        {
+          "name": "Use Node.js 20.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-10T02:23:55Z",
+          "completed_at": "2025-11-10T02:24:37Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-10T02:24:37Z",
+          "completed_at": "2025-11-10T02:25:09Z"
+        },
+        {
+          "name": "Run linter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-10T02:25:09Z",
+          "completed_at": "2025-11-10T02:25:13Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-10T02:25:13Z",
+          "completed_at": "2025-11-10T02:25:16Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-10T02:25:16Z",
+          "completed_at": "2025-11-10T02:25:16Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-10T02:25:16Z",
+          "completed_at": "2025-11-10T02:28:08Z"
+        },
+        {
+          "name": "Post Use Node.js 20.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-10T02:28:08Z",
+          "completed_at": "2025-11-10T02:28:08Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-10T02:28:08Z",
+          "completed_at": "2025-11-10T02:28:10Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-10T02:28:10Z",
+          "completed_at": "2025-11-10T02:28:10Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/check-runs/54932155538",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001321,
+      "runner_name": "GitHub Actions 1000001321",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 54932155541,
+      "run_id": 19217769208,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyHkB88AAAAMyjYslQ",
+      "head_sha": "7cb64f7a87b9a6c6f43c08f4f287229d098ad6fd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/jobs/54932155541",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/job/54932155541",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-10T02:23:43Z",
+      "started_at": "2025-11-10T02:23:45Z",
+      "completed_at": "2025-11-10T02:27:33Z",
+      "name": "test-full-matrix (windows-latest, 22.x)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-10T02:23:46Z",
+          "completed_at": "2025-11-10T02:23:46Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-10T02:23:46Z",
+          "completed_at": "2025-11-10T02:23:52Z"
+        },
+        {
+          "name": "Use Node.js 22.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-10T02:23:52Z",
+          "completed_at": "2025-11-10T02:24:09Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-10T02:24:09Z",
+          "completed_at": "2025-11-10T02:24:37Z"
+        },
+        {
+          "name": "Run linter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-10T02:24:37Z",
+          "completed_at": "2025-11-10T02:24:41Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-10T02:24:41Z",
+          "completed_at": "2025-11-10T02:24:44Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-10T02:24:44Z",
+          "completed_at": "2025-11-10T02:24:44Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-10T02:24:44Z",
+          "completed_at": "2025-11-10T02:27:29Z"
+        },
+        {
+          "name": "Post Use Node.js 22.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-10T02:27:29Z",
+          "completed_at": "2025-11-10T02:27:30Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-10T02:27:30Z",
+          "completed_at": "2025-11-10T02:27:32Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-10T02:27:32Z",
+          "completed_at": "2025-11-10T02:27:32Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/check-runs/54932155541",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001320,
+      "runner_name": "GitHub Actions 1000001320",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 54932155542,
+      "run_id": 19217769208,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyHkB88AAAAMyjYslg",
+      "head_sha": "7cb64f7a87b9a6c6f43c08f4f287229d098ad6fd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/jobs/54932155542",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/job/54932155542",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-10T02:23:43Z",
+      "started_at": "2025-11-10T02:23:45Z",
+      "completed_at": "2025-11-10T02:26:32Z",
+      "name": "test-full-matrix (ubuntu-latest, 22.x)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-10T02:23:45Z",
+          "completed_at": "2025-11-10T02:23:46Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-10T02:23:46Z",
+          "completed_at": "2025-11-10T02:23:46Z"
+        },
+        {
+          "name": "Use Node.js 22.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-10T02:23:46Z",
+          "completed_at": "2025-11-10T02:23:50Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-10T02:23:50Z",
+          "completed_at": "2025-11-10T02:23:53Z"
+        },
+        {
+          "name": "Run linter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-10T02:23:53Z",
+          "completed_at": "2025-11-10T02:23:55Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-10T02:23:55Z",
+          "completed_at": "2025-11-10T02:23:57Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2025-11-10T02:23:57Z",
+          "completed_at": "2025-11-10T02:26:31Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2025-11-10T02:26:31Z",
+          "completed_at": "2025-11-10T02:26:31Z"
+        },
+        {
+          "name": "Post Use Node.js 22.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-10T02:26:31Z",
+          "completed_at": "2025-11-10T02:26:31Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-10T02:26:31Z",
+          "completed_at": "2025-11-10T02:26:31Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-10T02:26:31Z",
+          "completed_at": "2025-11-10T02:26:31Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/check-runs/54932155542",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001318,
+      "runner_name": "GitHub Actions 1000001318",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 54932155546,
+      "run_id": 19217769208,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyHkB88AAAAMyjYsmg",
+      "head_sha": "7cb64f7a87b9a6c6f43c08f4f287229d098ad6fd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/jobs/54932155546",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/job/54932155546",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-10T02:23:43Z",
+      "started_at": "2025-11-10T02:23:45Z",
+      "completed_at": "2025-11-10T02:27:12Z",
+      "name": "test-full-matrix (ubuntu-latest, 20.x)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-10T02:23:46Z",
+          "completed_at": "2025-11-10T02:23:47Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-10T02:23:47Z",
+          "completed_at": "2025-11-10T02:23:47Z"
+        },
+        {
+          "name": "Use Node.js 20.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-10T02:23:47Z",
+          "completed_at": "2025-11-10T02:23:52Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-10T02:23:52Z",
+          "completed_at": "2025-11-10T02:23:55Z"
+        },
+        {
+          "name": "Run linter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-10T02:23:55Z",
+          "completed_at": "2025-11-10T02:23:57Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-10T02:23:57Z",
+          "completed_at": "2025-11-10T02:23:59Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2025-11-10T02:23:59Z",
+          "completed_at": "2025-11-10T02:27:09Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2025-11-10T02:27:09Z",
+          "completed_at": "2025-11-10T02:27:09Z"
+        },
+        {
+          "name": "Post Use Node.js 20.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-10T02:27:09Z",
+          "completed_at": "2025-11-10T02:27:09Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-10T02:27:09Z",
+          "completed_at": "2025-11-10T02:27:10Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-10T02:27:10Z",
+          "completed_at": "2025-11-10T02:27:10Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/check-runs/54932155546",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001322,
+      "runner_name": "GitHub Actions 1000001322",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 54932155547,
+      "run_id": 19217769208,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyHkB88AAAAMyjYsmw",
+      "head_sha": "7cb64f7a87b9a6c6f43c08f4f287229d098ad6fd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/jobs/54932155547",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/job/54932155547",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-10T02:23:43Z",
+      "started_at": "2025-11-10T02:23:45Z",
+      "completed_at": "2025-11-10T02:27:02Z",
+      "name": "test-full-matrix (windows-latest, 24.x)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-10T02:23:45Z",
+          "completed_at": "2025-11-10T02:23:46Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-10T02:23:46Z",
+          "completed_at": "2025-11-10T02:23:50Z"
+        },
+        {
+          "name": "Use Node.js 24.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-10T02:23:50Z",
+          "completed_at": "2025-11-10T02:23:58Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-10T02:23:58Z",
+          "completed_at": "2025-11-10T02:24:12Z"
+        },
+        {
+          "name": "Run linter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-10T02:24:12Z",
+          "completed_at": "2025-11-10T02:24:15Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-10T02:24:15Z",
+          "completed_at": "2025-11-10T02:24:17Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-10T02:24:17Z",
+          "completed_at": "2025-11-10T02:24:17Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-10T02:24:17Z",
+          "completed_at": "2025-11-10T02:26:59Z"
+        },
+        {
+          "name": "Post Use Node.js 24.x",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2025-11-10T02:26:59Z",
+          "completed_at": "2025-11-10T02:27:00Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2025-11-10T02:27:00Z",
+          "completed_at": "2025-11-10T02:27:01Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2025-11-10T02:27:01Z",
+          "completed_at": "2025-11-10T02:27:01Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/check-runs/54932155547",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001319,
+      "runner_name": "GitHub Actions 1000001319",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 54932155763,
+      "run_id": 19217769208,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyHkB88AAAAMyjYtcw",
+      "head_sha": "7cb64f7a87b9a6c6f43c08f4f287229d098ad6fd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/actions/jobs/54932155763",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-typescript/actions/runs/19217769208/job/54932155763",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2025-11-10T02:23:43Z",
+      "started_at": "2025-11-10T02:23:43Z",
+      "completed_at": "2025-11-10T02:23:43Z",
+      "name": "test",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-typescript/check-runs/54932155763",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    }
+  ],
+  "artifacts": []
+}

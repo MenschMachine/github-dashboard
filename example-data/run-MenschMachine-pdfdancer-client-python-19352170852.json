@@ -1,0 +1,1502 @@
+{
+  "id": 19352170852,
+  "name": "CI",
+  "node_id": "WFR_kwLOPyFnx88AAAAEgXqxZA",
+  "head_branch": "main",
+  "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+  "path": ".github/workflows/ci.yml",
+  "display_title": "docs: Update README.md with new logo and rewritten content",
+  "run_number": 78,
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "workflow_id": 190594260,
+  "check_suite_id": 49881898852,
+  "check_suite_node_id": "CS_kwDOPyFnx88AAAALnTFfZA",
+  "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+  "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+  "pull_requests": [],
+  "created_at": "2025-11-14T02:19:45Z",
+  "updated_at": "2025-11-14T03:15:45Z",
+  "actor": {
+    "login": "mlahr",
+    "id": 588035,
+    "node_id": "MDQ6VXNlcjU4ODAzNQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/588035?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mlahr",
+    "html_url": "https://github.com/mlahr",
+    "followers_url": "https://api.github.com/users/mlahr/followers",
+    "following_url": "https://api.github.com/users/mlahr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mlahr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mlahr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mlahr/subscriptions",
+    "organizations_url": "https://api.github.com/users/mlahr/orgs",
+    "repos_url": "https://api.github.com/users/mlahr/repos",
+    "events_url": "https://api.github.com/users/mlahr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mlahr/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "run_attempt": 2,
+  "referenced_workflows": [],
+  "run_started_at": "2025-11-14T03:06:27Z",
+  "triggering_actor": {
+    "login": "mlahr",
+    "id": 588035,
+    "node_id": "MDQ6VXNlcjU4ODAzNQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/588035?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mlahr",
+    "html_url": "https://github.com/mlahr",
+    "followers_url": "https://api.github.com/users/mlahr/followers",
+    "following_url": "https://api.github.com/users/mlahr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mlahr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mlahr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mlahr/subscriptions",
+    "organizations_url": "https://api.github.com/users/mlahr/orgs",
+    "repos_url": "https://api.github.com/users/mlahr/repos",
+    "events_url": "https://api.github.com/users/mlahr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mlahr/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "jobs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/jobs",
+  "logs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/logs",
+  "check_suite_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-suites/49881898852",
+  "artifacts_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/artifacts",
+  "cancel_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/cancel",
+  "rerun_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/rerun",
+  "previous_attempt_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/attempts/1",
+  "workflow_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/workflows/190594260",
+  "head_commit": {
+    "id": "19d3438016e79f83e28844259a10a733884690bd",
+    "tree_id": "07be72c4ddaa34aab7fe92043cde3e6e687bcd5e",
+    "message": "docs: Update README.md with new logo and rewritten content",
+    "timestamp": "2025-11-14T02:19:38Z",
+    "author": {
+      "name": "Michael Lahr",
+      "email": "michael.lahr@gmail.com"
+    },
+    "committer": {
+      "name": "Michael Lahr (aider)",
+      "email": "michael.lahr@gmail.com"
+    }
+  },
+  "repository": {
+    "id": 1059153863,
+    "node_id": "R_kgDOPyFnxw",
+    "name": "pdfdancer-client-python",
+    "full_name": "MenschMachine/pdfdancer-client-python",
+    "private": false,
+    "owner": {
+      "login": "MenschMachine",
+      "id": 165865050,
+      "node_id": "O_kgDOCeLmWg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/165865050?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MenschMachine",
+      "html_url": "https://github.com/MenschMachine",
+      "followers_url": "https://api.github.com/users/MenschMachine/followers",
+      "following_url": "https://api.github.com/users/MenschMachine/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MenschMachine/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MenschMachine/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MenschMachine/subscriptions",
+      "organizations_url": "https://api.github.com/users/MenschMachine/orgs",
+      "repos_url": "https://api.github.com/users/MenschMachine/repos",
+      "events_url": "https://api.github.com/users/MenschMachine/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MenschMachine/received_events",
+      "type": "Organization",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/MenschMachine/pdfdancer-client-python",
+    "description": null,
+    "fork": false,
+    "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python",
+    "forks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/forks",
+    "keys_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/teams",
+    "hooks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/hooks",
+    "issue_events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/events",
+    "assignees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/tags",
+    "blobs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/languages",
+    "stargazers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/stargazers",
+    "contributors_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/contributors",
+    "subscribers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/subscribers",
+    "subscription_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/subscription",
+    "commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/merges",
+    "archive_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/downloads",
+    "issues_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/labels{/name}",
+    "releases_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/deployments"
+  },
+  "head_repository": {
+    "id": 1059153863,
+    "node_id": "R_kgDOPyFnxw",
+    "name": "pdfdancer-client-python",
+    "full_name": "MenschMachine/pdfdancer-client-python",
+    "private": false,
+    "owner": {
+      "login": "MenschMachine",
+      "id": 165865050,
+      "node_id": "O_kgDOCeLmWg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/165865050?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MenschMachine",
+      "html_url": "https://github.com/MenschMachine",
+      "followers_url": "https://api.github.com/users/MenschMachine/followers",
+      "following_url": "https://api.github.com/users/MenschMachine/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MenschMachine/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MenschMachine/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MenschMachine/subscriptions",
+      "organizations_url": "https://api.github.com/users/MenschMachine/orgs",
+      "repos_url": "https://api.github.com/users/MenschMachine/repos",
+      "events_url": "https://api.github.com/users/MenschMachine/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MenschMachine/received_events",
+      "type": "Organization",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/MenschMachine/pdfdancer-client-python",
+    "description": null,
+    "fork": false,
+    "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python",
+    "forks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/forks",
+    "keys_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/teams",
+    "hooks_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/hooks",
+    "issue_events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/events",
+    "assignees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/tags",
+    "blobs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/languages",
+    "stargazers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/stargazers",
+    "contributors_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/contributors",
+    "subscribers_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/subscribers",
+    "subscription_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/subscription",
+    "commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/merges",
+    "archive_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/downloads",
+    "issues_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/labels{/name}",
+    "releases_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/deployments"
+  },
+  "jobs": [
+    {
+      "id": 55368420276,
+      "run_id": 19352170852,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyFnx88AAAAM5DcLtA",
+      "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/jobs/55368420276",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/job/55368420276",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-14T03:06:28Z",
+      "started_at": "2025-11-14T03:06:31Z",
+      "completed_at": "2025-11-14T03:12:46Z",
+      "name": "test-full-matrix (ubuntu-latest, 3.11)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T03:06:32Z",
+          "completed_at": "2025-11-14T03:06:33Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T03:06:33Z",
+          "completed_at": "2025-11-14T03:06:34Z"
+        },
+        {
+          "name": "Set up Python 3.11",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T03:06:34Z",
+          "completed_at": "2025-11-14T03:06:34Z"
+        },
+        {
+          "name": "Create virtual environment (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T03:06:34Z",
+          "completed_at": "2025-11-14T03:06:40Z"
+        },
+        {
+          "name": "Install dependencies (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-14T03:06:40Z",
+          "completed_at": "2025-11-14T03:06:54Z"
+        },
+        {
+          "name": "Run linter (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-14T03:06:54Z",
+          "completed_at": "2025-11-14T03:06:55Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2025-11-14T03:06:55Z",
+          "completed_at": "2025-11-14T03:12:39Z"
+        },
+        {
+          "name": "Build & Validate (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T03:12:39Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        },
+        {
+          "name": "Create virtual environment (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2025-11-14T03:12:43Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        },
+        {
+          "name": "Install dependencies (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2025-11-14T03:12:43Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        },
+        {
+          "name": "Run linter (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2025-11-14T03:12:43Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2025-11-14T03:12:43Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        },
+        {
+          "name": "Build & Validate (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2025-11-14T03:12:43Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        },
+        {
+          "name": "Post Set up Python 3.11",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2025-11-14T03:12:43Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2025-11-14T03:12:43Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2025-11-14T03:12:43Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-runs/55368420276",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001885,
+      "runner_name": "GitHub Actions 1000001885",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55368420278,
+      "run_id": 19352170852,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyFnx88AAAAM5DcLtg",
+      "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/jobs/55368420278",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/job/55368420278",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-14T03:06:28Z",
+      "started_at": "2025-11-14T03:06:31Z",
+      "completed_at": "2025-11-14T03:12:51Z",
+      "name": "test-full-matrix (ubuntu-latest, 3.13)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T03:06:32Z",
+          "completed_at": "2025-11-14T03:06:32Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T03:06:32Z",
+          "completed_at": "2025-11-14T03:06:33Z"
+        },
+        {
+          "name": "Set up Python 3.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T03:06:33Z",
+          "completed_at": "2025-11-14T03:06:33Z"
+        },
+        {
+          "name": "Create virtual environment (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T03:06:33Z",
+          "completed_at": "2025-11-14T03:06:38Z"
+        },
+        {
+          "name": "Install dependencies (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-14T03:06:38Z",
+          "completed_at": "2025-11-14T03:06:53Z"
+        },
+        {
+          "name": "Run linter (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-14T03:06:53Z",
+          "completed_at": "2025-11-14T03:06:54Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2025-11-14T03:06:54Z",
+          "completed_at": "2025-11-14T03:12:43Z"
+        },
+        {
+          "name": "Build & Validate (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T03:12:43Z",
+          "completed_at": "2025-11-14T03:12:48Z"
+        },
+        {
+          "name": "Create virtual environment (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2025-11-14T03:12:48Z",
+          "completed_at": "2025-11-14T03:12:48Z"
+        },
+        {
+          "name": "Install dependencies (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2025-11-14T03:12:48Z",
+          "completed_at": "2025-11-14T03:12:48Z"
+        },
+        {
+          "name": "Run linter (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2025-11-14T03:12:48Z",
+          "completed_at": "2025-11-14T03:12:48Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2025-11-14T03:12:48Z",
+          "completed_at": "2025-11-14T03:12:48Z"
+        },
+        {
+          "name": "Build & Validate (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2025-11-14T03:12:48Z",
+          "completed_at": "2025-11-14T03:12:48Z"
+        },
+        {
+          "name": "Post Set up Python 3.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2025-11-14T03:12:48Z",
+          "completed_at": "2025-11-14T03:12:48Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2025-11-14T03:12:48Z",
+          "completed_at": "2025-11-14T03:12:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2025-11-14T03:12:49Z",
+          "completed_at": "2025-11-14T03:12:49Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-runs/55368420278",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001884,
+      "runner_name": "GitHub Actions 1000001884",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55368420281,
+      "run_id": 19352170852,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyFnx88AAAAM5DcLuQ",
+      "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/jobs/55368420281",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/job/55368420281",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-14T03:06:28Z",
+      "started_at": "2025-11-14T03:06:30Z",
+      "completed_at": "2025-11-14T03:13:05Z",
+      "name": "test-full-matrix (ubuntu-latest, 3.10)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T03:06:31Z",
+          "completed_at": "2025-11-14T03:06:32Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T03:06:32Z",
+          "completed_at": "2025-11-14T03:06:32Z"
+        },
+        {
+          "name": "Set up Python 3.10",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T03:06:32Z",
+          "completed_at": "2025-11-14T03:06:33Z"
+        },
+        {
+          "name": "Create virtual environment (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T03:06:33Z",
+          "completed_at": "2025-11-14T03:06:36Z"
+        },
+        {
+          "name": "Install dependencies (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-14T03:06:36Z",
+          "completed_at": "2025-11-14T03:06:51Z"
+        },
+        {
+          "name": "Run linter (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-14T03:06:51Z",
+          "completed_at": "2025-11-14T03:06:52Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2025-11-14T03:06:52Z",
+          "completed_at": "2025-11-14T03:12:59Z"
+        },
+        {
+          "name": "Build & Validate (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T03:12:59Z",
+          "completed_at": "2025-11-14T03:13:04Z"
+        },
+        {
+          "name": "Create virtual environment (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2025-11-14T03:13:04Z",
+          "completed_at": "2025-11-14T03:13:04Z"
+        },
+        {
+          "name": "Install dependencies (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2025-11-14T03:13:04Z",
+          "completed_at": "2025-11-14T03:13:04Z"
+        },
+        {
+          "name": "Run linter (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2025-11-14T03:13:04Z",
+          "completed_at": "2025-11-14T03:13:04Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2025-11-14T03:13:04Z",
+          "completed_at": "2025-11-14T03:13:04Z"
+        },
+        {
+          "name": "Build & Validate (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2025-11-14T03:13:04Z",
+          "completed_at": "2025-11-14T03:13:04Z"
+        },
+        {
+          "name": "Post Set up Python 3.10",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2025-11-14T03:13:04Z",
+          "completed_at": "2025-11-14T03:13:04Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2025-11-14T03:13:04Z",
+          "completed_at": "2025-11-14T03:13:04Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2025-11-14T03:13:04Z",
+          "completed_at": "2025-11-14T03:13:04Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-runs/55368420281",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001883,
+      "runner_name": "GitHub Actions 1000001883",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55368420283,
+      "run_id": 19352170852,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyFnx88AAAAM5DcLuw",
+      "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/jobs/55368420283",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/job/55368420283",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-14T03:06:28Z",
+      "started_at": "2025-11-14T03:06:30Z",
+      "completed_at": "2025-11-14T03:12:23Z",
+      "name": "test-full-matrix (windows-latest, 3.10)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T03:06:31Z",
+          "completed_at": "2025-11-14T03:06:32Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T03:06:32Z",
+          "completed_at": "2025-11-14T03:06:37Z"
+        },
+        {
+          "name": "Set up Python 3.10",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T03:06:37Z",
+          "completed_at": "2025-11-14T03:06:37Z"
+        },
+        {
+          "name": "Create virtual environment (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2025-11-14T03:06:37Z",
+          "completed_at": "2025-11-14T03:06:37Z"
+        },
+        {
+          "name": "Install dependencies (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2025-11-14T03:06:37Z",
+          "completed_at": "2025-11-14T03:06:37Z"
+        },
+        {
+          "name": "Run linter (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2025-11-14T03:06:37Z",
+          "completed_at": "2025-11-14T03:06:37Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-14T03:06:37Z",
+          "completed_at": "2025-11-14T03:06:37Z"
+        },
+        {
+          "name": "Build & Validate (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2025-11-14T03:06:37Z",
+          "completed_at": "2025-11-14T03:06:37Z"
+        },
+        {
+          "name": "Create virtual environment (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2025-11-14T03:06:37Z",
+          "completed_at": "2025-11-14T03:06:45Z"
+        },
+        {
+          "name": "Install dependencies (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2025-11-14T03:06:45Z",
+          "completed_at": "2025-11-14T03:07:11Z"
+        },
+        {
+          "name": "Run linter (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2025-11-14T03:07:11Z",
+          "completed_at": "2025-11-14T03:07:22Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2025-11-14T03:07:22Z",
+          "completed_at": "2025-11-14T03:12:09Z"
+        },
+        {
+          "name": "Build & Validate (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2025-11-14T03:12:09Z",
+          "completed_at": "2025-11-14T03:12:20Z"
+        },
+        {
+          "name": "Post Set up Python 3.10",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2025-11-14T03:12:20Z",
+          "completed_at": "2025-11-14T03:12:21Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2025-11-14T03:12:21Z",
+          "completed_at": "2025-11-14T03:12:22Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2025-11-14T03:12:22Z",
+          "completed_at": "2025-11-14T03:12:22Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-runs/55368420283",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001886,
+      "runner_name": "GitHub Actions 1000001886",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55368420287,
+      "run_id": 19352170852,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyFnx88AAAAM5DcLvw",
+      "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/jobs/55368420287",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/job/55368420287",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-14T03:06:28Z",
+      "started_at": "2025-11-14T03:06:30Z",
+      "completed_at": "2025-11-14T03:13:43Z",
+      "name": "test-full-matrix (ubuntu-latest, 3.12)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T03:06:31Z",
+          "completed_at": "2025-11-14T03:06:32Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T03:06:32Z",
+          "completed_at": "2025-11-14T03:06:32Z"
+        },
+        {
+          "name": "Set up Python 3.12",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T03:06:32Z",
+          "completed_at": "2025-11-14T03:06:33Z"
+        },
+        {
+          "name": "Create virtual environment (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2025-11-14T03:06:33Z",
+          "completed_at": "2025-11-14T03:06:37Z"
+        },
+        {
+          "name": "Install dependencies (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2025-11-14T03:06:37Z",
+          "completed_at": "2025-11-14T03:06:53Z"
+        },
+        {
+          "name": "Run linter (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2025-11-14T03:06:53Z",
+          "completed_at": "2025-11-14T03:06:54Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2025-11-14T03:06:54Z",
+          "completed_at": "2025-11-14T03:13:36Z"
+        },
+        {
+          "name": "Build & Validate (Unix)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2025-11-14T03:13:36Z",
+          "completed_at": "2025-11-14T03:13:41Z"
+        },
+        {
+          "name": "Create virtual environment (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2025-11-14T03:13:41Z",
+          "completed_at": "2025-11-14T03:13:41Z"
+        },
+        {
+          "name": "Install dependencies (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2025-11-14T03:13:41Z",
+          "completed_at": "2025-11-14T03:13:41Z"
+        },
+        {
+          "name": "Run linter (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2025-11-14T03:13:41Z",
+          "completed_at": "2025-11-14T03:13:41Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2025-11-14T03:13:41Z",
+          "completed_at": "2025-11-14T03:13:41Z"
+        },
+        {
+          "name": "Build & Validate (Windows)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2025-11-14T03:13:41Z",
+          "completed_at": "2025-11-14T03:13:41Z"
+        },
+        {
+          "name": "Post Set up Python 3.12",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2025-11-14T03:13:41Z",
+          "completed_at": "2025-11-14T03:13:41Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2025-11-14T03:13:41Z",
+          "completed_at": "2025-11-14T03:13:41Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2025-11-14T03:13:41Z",
+          "completed_at": "2025-11-14T03:13:41Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-runs/55368420287",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001890,
+      "runner_name": "GitHub Actions 1000001890",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55368420290,
+      "run_id": 19352170852,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyFnx88AAAAM5DcLwg",
+      "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/jobs/55368420290",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/job/55368420290",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-14T03:06:28Z",
+      "started_at": "2025-11-14T03:06:31Z",
+      "completed_at": "2025-11-14T03:15:44Z",
+      "name": "test-full-matrix (windows-latest, 3.11)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T03:06:32Z",
+          "completed_at": "2025-11-14T03:06:33Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T03:06:33Z",
+          "completed_at": "2025-11-14T03:06:39Z"
+        },
+        {
+          "name": "Set up Python 3.11",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T03:06:39Z",
+          "completed_at": "2025-11-14T03:06:39Z"
+        },
+        {
+          "name": "Create virtual environment (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2025-11-14T03:06:39Z",
+          "completed_at": "2025-11-14T03:06:39Z"
+        },
+        {
+          "name": "Install dependencies (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2025-11-14T03:06:39Z",
+          "completed_at": "2025-11-14T03:06:39Z"
+        },
+        {
+          "name": "Run linter (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2025-11-14T03:06:39Z",
+          "completed_at": "2025-11-14T03:06:39Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-14T03:06:39Z",
+          "completed_at": "2025-11-14T03:06:39Z"
+        },
+        {
+          "name": "Build & Validate (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2025-11-14T03:06:39Z",
+          "completed_at": "2025-11-14T03:06:39Z"
+        },
+        {
+          "name": "Create virtual environment (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2025-11-14T03:06:39Z",
+          "completed_at": "2025-11-14T03:06:56Z"
+        },
+        {
+          "name": "Install dependencies (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2025-11-14T03:06:56Z",
+          "completed_at": "2025-11-14T03:07:34Z"
+        },
+        {
+          "name": "Run linter (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2025-11-14T03:07:34Z",
+          "completed_at": "2025-11-14T03:08:23Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2025-11-14T03:08:23Z",
+          "completed_at": "2025-11-14T03:15:26Z"
+        },
+        {
+          "name": "Build & Validate (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2025-11-14T03:15:26Z",
+          "completed_at": "2025-11-14T03:15:40Z"
+        },
+        {
+          "name": "Post Set up Python 3.11",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2025-11-14T03:15:40Z",
+          "completed_at": "2025-11-14T03:15:40Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2025-11-14T03:15:40Z",
+          "completed_at": "2025-11-14T03:15:42Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2025-11-14T03:15:42Z",
+          "completed_at": "2025-11-14T03:15:42Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-runs/55368420290",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001887,
+      "runner_name": "GitHub Actions 1000001887",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55368420303,
+      "run_id": 19352170852,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyFnx88AAAAM5DcLzw",
+      "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/jobs/55368420303",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/job/55368420303",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-14T03:06:28Z",
+      "started_at": "2025-11-14T03:06:38Z",
+      "completed_at": "2025-11-14T03:15:10Z",
+      "name": "test-full-matrix (windows-latest, 3.12)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T03:06:39Z",
+          "completed_at": "2025-11-14T03:06:40Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T03:06:40Z",
+          "completed_at": "2025-11-14T03:06:45Z"
+        },
+        {
+          "name": "Set up Python 3.12",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T03:06:45Z",
+          "completed_at": "2025-11-14T03:06:46Z"
+        },
+        {
+          "name": "Create virtual environment (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2025-11-14T03:06:46Z",
+          "completed_at": "2025-11-14T03:06:46Z"
+        },
+        {
+          "name": "Install dependencies (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2025-11-14T03:06:46Z",
+          "completed_at": "2025-11-14T03:06:46Z"
+        },
+        {
+          "name": "Run linter (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2025-11-14T03:06:46Z",
+          "completed_at": "2025-11-14T03:06:46Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-14T03:06:46Z",
+          "completed_at": "2025-11-14T03:06:46Z"
+        },
+        {
+          "name": "Build & Validate (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2025-11-14T03:06:46Z",
+          "completed_at": "2025-11-14T03:06:46Z"
+        },
+        {
+          "name": "Create virtual environment (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2025-11-14T03:06:46Z",
+          "completed_at": "2025-11-14T03:06:52Z"
+        },
+        {
+          "name": "Install dependencies (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2025-11-14T03:06:52Z",
+          "completed_at": "2025-11-14T03:07:19Z"
+        },
+        {
+          "name": "Run linter (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2025-11-14T03:07:19Z",
+          "completed_at": "2025-11-14T03:08:00Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2025-11-14T03:08:00Z",
+          "completed_at": "2025-11-14T03:14:54Z"
+        },
+        {
+          "name": "Build & Validate (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2025-11-14T03:14:54Z",
+          "completed_at": "2025-11-14T03:15:06Z"
+        },
+        {
+          "name": "Post Set up Python 3.12",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2025-11-14T03:15:06Z",
+          "completed_at": "2025-11-14T03:15:07Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2025-11-14T03:15:07Z",
+          "completed_at": "2025-11-14T03:15:08Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2025-11-14T03:15:08Z",
+          "completed_at": "2025-11-14T03:15:08Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-runs/55368420303",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001889,
+      "runner_name": "GitHub Actions 1000001889",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55368420308,
+      "run_id": 19352170852,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyFnx88AAAAM5DcL1A",
+      "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/jobs/55368420308",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/job/55368420308",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-14T03:06:28Z",
+      "started_at": "2025-11-14T03:06:30Z",
+      "completed_at": "2025-11-14T03:13:18Z",
+      "name": "test-full-matrix (windows-latest, 3.13)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2025-11-14T03:06:31Z",
+          "completed_at": "2025-11-14T03:06:31Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2025-11-14T03:06:31Z",
+          "completed_at": "2025-11-14T03:06:36Z"
+        },
+        {
+          "name": "Set up Python 3.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2025-11-14T03:06:36Z",
+          "completed_at": "2025-11-14T03:06:36Z"
+        },
+        {
+          "name": "Create virtual environment (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2025-11-14T03:06:36Z",
+          "completed_at": "2025-11-14T03:06:36Z"
+        },
+        {
+          "name": "Install dependencies (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2025-11-14T03:06:36Z",
+          "completed_at": "2025-11-14T03:06:36Z"
+        },
+        {
+          "name": "Run linter (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2025-11-14T03:06:36Z",
+          "completed_at": "2025-11-14T03:06:36Z"
+        },
+        {
+          "name": "Run tests (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2025-11-14T03:06:36Z",
+          "completed_at": "2025-11-14T03:06:36Z"
+        },
+        {
+          "name": "Build & Validate (Unix)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2025-11-14T03:06:36Z",
+          "completed_at": "2025-11-14T03:06:36Z"
+        },
+        {
+          "name": "Create virtual environment (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2025-11-14T03:06:36Z",
+          "completed_at": "2025-11-14T03:06:42Z"
+        },
+        {
+          "name": "Install dependencies (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2025-11-14T03:06:42Z",
+          "completed_at": "2025-11-14T03:07:09Z"
+        },
+        {
+          "name": "Run linter (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2025-11-14T03:07:09Z",
+          "completed_at": "2025-11-14T03:07:16Z"
+        },
+        {
+          "name": "Run tests (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2025-11-14T03:07:16Z",
+          "completed_at": "2025-11-14T03:13:05Z"
+        },
+        {
+          "name": "Build & Validate (Windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2025-11-14T03:13:05Z",
+          "completed_at": "2025-11-14T03:13:15Z"
+        },
+        {
+          "name": "Post Set up Python 3.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2025-11-14T03:13:15Z",
+          "completed_at": "2025-11-14T03:13:16Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2025-11-14T03:13:16Z",
+          "completed_at": "2025-11-14T03:13:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2025-11-14T03:13:17Z",
+          "completed_at": "2025-11-14T03:13:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-runs/55368420308",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000001888,
+      "runner_name": "GitHub Actions 1000001888",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 55368420357,
+      "run_id": 19352170852,
+      "workflow_name": "CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/runs/19352170852",
+      "run_attempt": 2,
+      "node_id": "CR_kwDOPyFnx88AAAAM5DcMBQ",
+      "head_sha": "19d3438016e79f83e28844259a10a733884690bd",
+      "url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/actions/jobs/55368420357",
+      "html_url": "https://github.com/MenschMachine/pdfdancer-client-python/actions/runs/19352170852/job/55368420357",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2025-11-14T03:06:28Z",
+      "started_at": "2025-11-14T03:06:28Z",
+      "completed_at": "2025-11-14T03:06:28Z",
+      "name": "test",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/MenschMachine/pdfdancer-client-python/check-runs/55368420357",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    }
+  ],
+  "artifacts": []
+}

@@ -1,0 +1,127 @@
+{
+  "period_type": "daily",
+  "period": "2025-11-15",
+  "run_count": 12,
+  "workflow_runs": [
+    {
+      "repository": "MenschMachine/pdfdancer-client-java",
+      "run_id": 19392962074,
+      "filename": "run-MenschMachine-pdfdancer-client-java-19392962074.json",
+      "name": "Daily Tests",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T17:10:19Z",
+      "updated_at": "2025-11-15T17:22:13Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-java",
+      "run_id": 19382465498,
+      "filename": "run-MenschMachine-pdfdancer-client-java-19382465498.json",
+      "name": "Build",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T01:44:07Z",
+      "updated_at": "2025-11-15T01:55:11Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-java",
+      "run_id": 19382123103,
+      "filename": "run-MenschMachine-pdfdancer-client-java-19382123103.json",
+      "name": "Build",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T01:18:49Z",
+      "updated_at": "2025-11-15T01:31:50Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-python",
+      "run_id": 19388688551,
+      "filename": "run-MenschMachine-pdfdancer-client-python-19388688551.json",
+      "name": "Daily Tests",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T10:43:52Z",
+      "updated_at": "2025-11-15T10:52:00Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-typescript",
+      "run_id": 19396824748,
+      "filename": "run-MenschMachine-pdfdancer-client-typescript-19396824748.json",
+      "name": "Daily Tests",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T23:03:57Z",
+      "updated_at": "2025-11-15T23:08:23Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-typescript",
+      "run_id": 19383459623,
+      "filename": "run-MenschMachine-pdfdancer-client-typescript-19383459623.json",
+      "name": "Daily Tests",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-15T03:05:03Z",
+      "updated_at": "2025-11-15T03:09:01Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-python-examples",
+      "run_id": 19391385729,
+      "filename": "run-MenschMachine-pdfdancer-client-python-examples-19391385729.json",
+      "name": "Daily Examples Test",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T14:46:52Z",
+      "updated_at": "2025-11-15T14:47:59Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-python-examples",
+      "run_id": 19383089639,
+      "filename": "run-MenschMachine-pdfdancer-client-python-examples-19383089639.json",
+      "name": "Daily Examples Test",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T02:34:21Z",
+      "updated_at": "2025-11-15T02:35:41Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-typescript-examples",
+      "run_id": 19384121563,
+      "filename": "run-MenschMachine-pdfdancer-client-typescript-examples-19384121563.json",
+      "name": "Daily Examples Test",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T04:01:45Z",
+      "updated_at": "2025-11-15T04:04:50Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-java-examples",
+      "run_id": 19384532032,
+      "filename": "run-MenschMachine-pdfdancer-client-java-examples-19384532032.json",
+      "name": "Daily Examples Test",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T04:37:40Z",
+      "updated_at": "2025-11-15T04:39:40Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-java-examples",
+      "run_id": 19383001492,
+      "filename": "run-MenschMachine-pdfdancer-client-java-examples-19383001492.json",
+      "name": "Daily Examples Test",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2025-11-15T02:27:32Z",
+      "updated_at": "2025-11-15T02:29:40Z"
+    },
+    {
+      "repository": "MenschMachine/pdfdancer-client-java-examples",
+      "run_id": 19382642071,
+      "filename": "run-MenschMachine-pdfdancer-client-java-examples-19382642071.json",
+      "name": "Daily Examples Test",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2025-11-15T01:57:51Z",
+      "updated_at": "2025-11-15T01:58:36Z"
+    }
+  ]
+}
