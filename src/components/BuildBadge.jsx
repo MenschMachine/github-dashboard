@@ -2,9 +2,13 @@ import { formatDate } from '../utils/dateFormatter';
 import './BuildBadge.css';
 
 export default function BuildBadge({ run }) {
-  const statusClass = run.conclusion === 'success' ? 'success' :
-                      run.conclusion === 'failure' ? 'failure' : 'cancelled';
-  const statusText = run.conclusion.charAt(0).toUpperCase() + run.conclusion.slice(1);
+  const conclusion = run.conclusion || run.status || 'unknown';
+
+  const statusClass = conclusion === 'success' ? 'success' :
+                      conclusion === 'failure' ? 'failure' :
+                      conclusion === 'in_progress' ? 'in-progress' : 'cancelled';
+
+  const statusText = conclusion.charAt(0).toUpperCase() + conclusion.slice(1).replace('_', ' ');
   const date = formatDate(run.created_at);
 
   // Build GitHub URL from repository name and run_id
