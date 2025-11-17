@@ -16,14 +16,9 @@ export default function RepositoryCard({ repoName, runs }) {
   const allSuccess = last5.every(r => r.conclusion === 'success');
   const allFailure = last5.every(r => r.conclusion === 'failure');
 
-  let statusClass = 'mixed';
-  let statusText = 'Mixed Status';
   let additionalInfo = null;
 
   if (allSuccess) {
-    statusClass = 'all-green';
-    statusText = 'All Green';
-
     // Find last failure
     const lastFailure = previousBuilds.find(r => r.conclusion === 'failure');
     if (lastFailure) {
@@ -44,9 +39,6 @@ export default function RepositoryCard({ repoName, runs }) {
       );
     }
   } else if (allFailure) {
-    statusClass = 'all-red';
-    statusText = 'All Red';
-
     // Find last success
     const lastSuccess = previousBuilds.find(r => r.conclusion === 'success');
     if (lastSuccess) {
@@ -66,10 +58,6 @@ export default function RepositoryCard({ repoName, runs }) {
         </div>
       );
     }
-  } else {
-    const successCount = last5.filter(r => r.conclusion === 'success').length;
-    const failureCount = last5.filter(r => r.conclusion === 'failure').length;
-    statusText = `${successCount} Success, ${failureCount} Failure`;
   }
 
   const repoUrl = `https://github.com/${repoName}`;
@@ -83,7 +71,6 @@ export default function RepositoryCard({ repoName, runs }) {
             {repoName}
           </a>
         </div>
-        <div className={`status-info ${statusClass}`}>{statusText}</div>
       </div>
       <div className="builds-container">
         {last5.map((run) => (

@@ -22,7 +22,7 @@ export default function Dashboard() {
             setLoading(false);
             return;
           }
-        } catch (err) {
+        } catch {
           // Continue to next year
         }
       }
@@ -38,11 +38,14 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="dashboard">
-        <header>
-          <h1>GitHub Actions Dashboard</h1>
-          <p className="subtitle">Repository Build Status Overview</p>
-        </header>
-        <div className="loading">Loading workflow data...</div>
+        <div className="dashboard-hero">
+          <header className="dashboard-header elevated-section">
+            <h1 className="dashboard-title">GitHub Actions Dashboard</h1>
+          </header>
+          <div className="dashboard-status elevated-section">
+            <div className="loading">Loading workflow data...</div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -50,11 +53,14 @@ export default function Dashboard() {
   if (error) {
     return (
       <div className="dashboard">
-        <header>
-          <h1>GitHub Actions Dashboard</h1>
-          <p className="subtitle">Repository Build Status Overview</p>
-        </header>
-        <div className="error">Error: {error}</div>
+        <div className="dashboard-hero">
+          <header className="dashboard-header elevated-section">
+            <h1 className="dashboard-title">GitHub Actions Dashboard</h1>
+          </header>
+          <div className="dashboard-status elevated-section">
+            <div className="error">Error: {error}</div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -93,23 +99,28 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <header>
-        <h1>GitHub Actions Dashboard</h1>
-        <p className="subtitle">Repository Build Status Overview</p>
-      </header>
+      <section className="dashboard-hero">
+        <header className="dashboard-header elevated-section">
+          <h1 className="dashboard-title">GitHub Actions Dashboard</h1>
+        </header>
 
-      <StatsBar
-        totalRepos={repoMap.size}
-        allGreen={allGreenCount}
-        allRed={allRedCount}
-        mixed={mixedCount}
-      />
+        <section className="dashboard-hero-panel elevated-section">
+          <StatsBar
+            totalRepos={repoMap.size}
+            allGreen={allGreenCount}
+            allRed={allRedCount}
+            mixed={mixedCount}
+          />
+        </section>
+      </section>
 
-      <div className="repositories">
-        {repositories.map(({ repoName, runs }) => (
-          <RepositoryCard key={repoName} repoName={repoName} runs={runs} />
-        ))}
-      </div>
+      <section className="dashboard-section elevated-section repositories-section">
+        <div className="repositories">
+          {repositories.map(({ repoName, runs }) => (
+            <RepositoryCard key={repoName} repoName={repoName} runs={runs} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

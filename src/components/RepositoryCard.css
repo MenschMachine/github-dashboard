@@ -1,23 +1,35 @@
 .repo-card {
-  background: white;
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.1s;
+  background: var(--theme-surface);
+  border-radius: var(--theme-border-radius);
+  padding: 1.25rem 1.5rem;
+  border: 2px solid var(--theme-border);
+  border-top: 2px solid rgba(255, 165, 0, 0.6);
+  box-shadow:
+    0 4px 8px rgba(255, 165, 0, 0.15),
+    0 12px 24px rgba(255, 165, 0, 0.2),
+    0 24px 64px rgba(255, 165, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 165, 0, 0.08);
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s ease-out,
+    border-color 0.3s ease;
 }
 
 .repo-card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px) scale(1.01);
+  box-shadow:
+    0 8px 16px rgba(255, 165, 0, 0.25),
+    0 18px 42px rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 165, 0, 0.9);
 }
 
 .repo-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .repo-name {
@@ -25,17 +37,18 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.4rem;
+  color: var(--theme-text-secondary);
 }
 
 .repo-name a {
-  color: #333;
+  color: var(--theme-text-secondary);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .repo-name a:hover {
-  color: #667eea;
+  color: var(--theme-primary);
 }
 
 .repo-name .icon {
@@ -44,54 +57,61 @@
 
 .status-info {
   font-size: 0.7rem;
-  color: #666;
-  background: #f8f9fa;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-weight: 500;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--theme-text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .status-info.all-green {
-  background: #d4edda;
-  color: #155724;
+  background: rgba(56, 239, 125, 0.12);
+  color: #38ef7d;
+  border-color: rgba(56, 239, 125, 0.45);
 }
 
 .status-info.all-red {
-  background: #f8d7da;
-  color: #721c24;
+  background: rgba(244, 92, 67, 0.13);
+  color: #ff7961;
+  border-color: rgba(244, 92, 67, 0.5);
 }
 
 .status-info.mixed {
-  background: #fff3cd;
-  color: #856404;
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffd54f;
+  border-color: rgba(255, 213, 79, 0.55);
 }
 
 .builds-container {
   display: flex;
-  gap: 6px;
-  margin-bottom: 8px;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
   flex-wrap: wrap;
 }
 
 .additional-info {
-  padding: 8px;
-  background: #f8f9fa;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
   border-radius: 6px;
-  margin-top: 6px;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .additional-info p {
   margin: 0;
   font-size: 0.75rem;
-  color: #555;
+  color: var(--theme-text-secondary);
 }
 
 .additional-info strong {
-  color: #333;
+  color: var(--theme-text-primary);
 }
 
 .date-highlight {
-  color: #667eea;
+  color: var(--theme-primary);
   font-weight: 600;
 }
 
