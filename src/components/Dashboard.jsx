@@ -65,6 +65,7 @@ export default function Dashboard() {
   let mixedCount = 0;
 
   const repositories = data.repositories
+    .filter(repo => repo.workflow_runs && repo.workflow_runs.length > 0)
     .map(repo => {
       const sortedRuns = [...repo.workflow_runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       const last5 = sortedRuns.slice(0, 5);
@@ -82,7 +83,11 @@ export default function Dashboard() {
 
       return { repoName: repo.name, runs: sortedRuns };
     })
-    .sort((a, b) => new Date(b.runs[0].created_at) - new Date(a.runs[0].created_at));
+    .sort((a, b) => {
+      const aDate = a.runs[0]?.created_at ? new Date(a.runs[0].created_at) : new Date(0);
+      const bDate = b.runs[0]?.created_at ? new Date(b.runs[0].created_at) : new Date(0);
+      return bDate - aDate;
+    });
 
   return (
     <div className="dashboard">
