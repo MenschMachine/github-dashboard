@@ -10,26 +10,20 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function loadData() {
-      const currentYear = new Date().getFullYear();
-      const years = [currentYear, currentYear - 1]; // Try current year, then previous year
-
-      for (const year of years) {
-        try {
-          const response = await fetch(`https://github-repository-status.thefamouscat.com/agg-yearly-${year}.json`);
-          if (response.ok) {
-            const jsonData = await response.json();
-            setData(jsonData);
-            setLoading(false);
-            return;
-          }
-        } catch {
-          // Continue to next year
+      try {
+        const response = await fetch('https://github-repository-status.thefamouscat.com/current-state.json');
+        if (response.ok) {
+          const jsonData = await response.json();
+          setData(jsonData);
+          setLoading(false);
+        } else {
+          setError('Failed to load current state data');
+          setLoading(false);
         }
+      } catch (err) {
+        setError(`Failed to fetch data: ${err.message}`);
+        setLoading(false);
       }
-
-      // If we get here, no data file was found
-      setError('No data file found for current or previous year');
-      setLoading(false);
     }
 
     loadData();
@@ -65,23 +59,14 @@ export default function Dashboard() {
     );
   }
 
-  // Group runs by repository
-  const repoMap = new Map();
-  data.workflow_runs.forEach(run => {
-    if (!repoMap.has(run.repository)) {
-      repoMap.set(run.repository, []);
-    }
-    repoMap.get(run.repository).push(run);
-  });
-
   // Calculate stats
   let allGreenCount = 0;
   let allRedCount = 0;
   let mixedCount = 0;
 
-  const repositories = Array.from(repoMap.entries())
-    .map(([repoName, runs]) => {
-      const sortedRuns = [...runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  const repositories = data.repositories
+    .map(repo => {
+      const sortedRuns = [...repo.workflow_runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       const last5 = sortedRuns.slice(0, 5);
 
       const allSuccess = last5.every(r => r.conclusion === 'success');
@@ -95,7 +80,7 @@ export default function Dashboard() {
         mixedCount++;
       }
 
-      return { repoName, runs: sortedRuns };
+      return { repoName: repo.name, runs: sortedRuns };
     })
     .sort((a, b) => new Date(b.runs[0].created_at) - new Date(a.runs[0].created_at));
 
@@ -108,7 +93,7 @@ export default function Dashboard() {
 
         <section className="dashboard-hero-panel elevated-section">
           <StatsBar
-            totalRepos={repoMap.size}
+            totalRepos={data.repository_count}
             allGreen={allGreenCount}
             allRed={allRedCount}
             mixed={mixedCount}
