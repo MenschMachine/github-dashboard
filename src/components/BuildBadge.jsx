@@ -11,8 +11,8 @@ export default function BuildBadge({ run }) {
   const statusText = conclusion.charAt(0).toUpperCase() + conclusion.slice(1).replace('_', ' ');
   const date = formatDate(run.created_at);
 
-  // Build GitHub URL from repository name and run_id
-  const repoUrl = `https://github.com/${run.repository}/actions/runs/${run.run_id}`;
+  // Use the html_url from the data
+  const repoUrl = run.html_url;
 
   return (
     <a
