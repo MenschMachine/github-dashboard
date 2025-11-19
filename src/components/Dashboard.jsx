@@ -59,26 +59,28 @@ export default function Dashboard() {
     );
   }
 
-  // Calculate stats
-  let allGreenCount = 0;
-  let allRedCount = 0;
-  let mixedCount = 0;
+  // Calculate stats - count repos by their most recent non-canceled run status
+  let successCount = 0;
+  let failureCount = 0;
+  let inProgressCount = 0;
 
   const repositories = data.repositories
     .filter(repo => repo.workflow_runs && repo.workflow_runs.length > 0)
     .map(repo => {
       const sortedRuns = [...repo.workflow_runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-      const last5 = sortedRuns.slice(0, 5);
 
-      const allSuccess = last5.every(r => r.conclusion === 'success');
-      const allFailure = last5.every(r => r.conclusion === 'failure');
+      // Find the most recent non-canceled run
+      const mostRecentRun = sortedRuns.find(run => run.conclusion !== 'cancelled' && run.conclusion !== 'canceled');
 
-      if (allSuccess) {
-        allGreenCount++;
-      } else if (allFailure) {
-        allRedCount++;
-      } else {
-        mixedCount++;
+      // Count repos by their most recent status
+      if (mostRecentRun) {
+        if (mostRecentRun.conclusion === 'success') {
+          successCount++;
+        } else if (mostRecentRun.conclusion === 'failure') {
+          failureCount++;
+        } else if (mostRecentRun.status === 'in_progress' || mostRecentRun.status === 'queued') {
+          inProgressCount++;
+        }
       }
 
       return { repoName: repo.name, runs: sortedRuns };
@@ -99,9 +101,9 @@ export default function Dashboard() {
         <section className="dashboard-hero-panel elevated-section">
           <StatsBar
             totalRepos={data.repository_count}
-            allGreen={allGreenCount}
-            allRed={allRedCount}
-            mixed={mixedCount}
+            successCount={successCount}
+            failureCount={failureCount}
+            inProgressCount={inProgressCount}
           />
         </section>
       </section>
