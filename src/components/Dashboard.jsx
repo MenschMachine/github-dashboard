@@ -66,21 +66,31 @@ export default function Dashboard() {
   let otherCount = 0;
 
   const repositories = data.repositories
-    .filter(repo => repo.workflow_runs && repo.workflow_runs.length > 0)
     .map(repo => {
+      // Handle repos without workflow runs
+      if (!repo.workflow_runs || repo.workflow_runs.length === 0) {
+        otherCount++;
+        return { repoName: repo.name, runs: [], status: 'other', lastRunDate: new Date(0) };
+      }
+
       const sortedRuns = [...repo.workflow_runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
       // Find the most recent non-canceled run
       const mostRecentRun = sortedRuns.find(run => run.conclusion !== 'cancelled' && run.conclusion !== 'canceled');
 
+      let status = 'other';
+
       // Count repos by their most recent status
       if (mostRecentRun) {
         if (mostRecentRun.conclusion === 'success') {
           successCount++;
+          status = 'success';
         } else if (mostRecentRun.conclusion === 'failure') {
           failureCount++;
+          status = 'failure';
         } else if (mostRecentRun.status === 'in_progress' || mostRecentRun.status === 'queued') {
           inProgressCount++;
+          status = 'inProgress';
         } else {
           // Other conclusions: neutral, skipped, timed_out, action_required, etc.
           otherCount++;
@@ -90,17 +100,18 @@ export default function Dashboard() {
         otherCount++;
       }
 
-      return { repoName: repo.name, runs: sortedRuns };
+      const lastRunDate = sortedRuns[0]?.created_at ? new Date(sortedRuns[0].created_at) : new Date(0);
+
+      return { repoName: repo.name, runs: sortedRuns, status, lastRunDate };
     })
     .sort((a, b) => {
-      const aDate = a.runs[0]?.created_at ? new Date(a.runs[0].created_at) : new Date(0);
-      const bDate = b.runs[0]?.created_at ? new Date(b.runs[0].created_at) : new Date(0);
-      return bDate - aDate;
-    });
+      // Sort "other" status repos to the end
+      if (a.status === 'other' && b.status !== 'other') return 1;
+      if (a.status !== 'other' && b.status === 'other') return -1;
 
-  // Count repos with no workflow runs
-  const reposWithoutRuns = data.repositories.filter(repo => !repo.workflow_runs || repo.workflow_runs.length === 0);
-  otherCount += reposWithoutRuns.length;
+      // Within each group, sort by most recent run date
+      return b.lastRunDate - a.lastRunDate;
+    });
 
   return (
     <div className="dashboard">
