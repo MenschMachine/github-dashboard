@@ -66,13 +66,8 @@ export default function Dashboard() {
   let otherCount = 0;
 
   const repositories = data.repositories
+    .filter(repo => repo.workflow_runs && repo.workflow_runs.length > 0)
     .map(repo => {
-      // Handle repos without workflow runs
-      if (!repo.workflow_runs || repo.workflow_runs.length === 0) {
-        otherCount++;
-        return { repoName: repo.name, runs: [], status: 'other', lastRunDate: new Date(0) };
-      }
-
       const sortedRuns = [...repo.workflow_runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
       // Find the most recent non-canceled run
@@ -113,6 +108,8 @@ export default function Dashboard() {
       return b.lastRunDate - a.lastRunDate;
     });
 
+  const totalReposWithRuns = repositories.length;
+
   return (
     <div className="dashboard">
       <section className="dashboard-hero">
@@ -122,7 +119,7 @@ export default function Dashboard() {
 
         <section className="dashboard-hero-panel elevated-section">
           <StatsBar
-            totalRepos={data.repository_count}
+            totalRepos={totalReposWithRuns}
             successCount={successCount}
             failureCount={failureCount}
             inProgressCount={inProgressCount}
