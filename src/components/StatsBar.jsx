@@ -1,6 +1,6 @@
 import './StatsBar.css';
 
-export default function StatsBar({ totalRepos, successCount, failureCount, inProgressCount }) {
+export default function StatsBar({ totalRepos, successCount, failureCount, inProgressCount, otherCount }) {
   return (
     <div className="stats-bar">
       <div className="stat-card">
@@ -18,6 +18,10 @@ export default function StatsBar({ totalRepos, successCount, failureCount, inPro
       <div className="stat-card">
         <div className="stat-value stat-yellow">{inProgressCount}</div>
         <div className="stat-label">In Progress / Queued</div>
+      </div>
+      <div className="stat-card">
+        <div className="stat-value stat-gray">{otherCount}</div>
+        <div className="stat-label">Other</div>
       </div>
     </div>
   );

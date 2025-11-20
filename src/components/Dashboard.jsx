@@ -63,6 +63,7 @@ export default function Dashboard() {
   let successCount = 0;
   let failureCount = 0;
   let inProgressCount = 0;
+  let otherCount = 0;
 
   const repositories = data.repositories
     .filter(repo => repo.workflow_runs && repo.workflow_runs.length > 0)
@@ -80,7 +81,13 @@ export default function Dashboard() {
           failureCount++;
         } else if (mostRecentRun.status === 'in_progress' || mostRecentRun.status === 'queued') {
           inProgressCount++;
+        } else {
+          // Other conclusions: neutral, skipped, timed_out, action_required, etc.
+          otherCount++;
         }
+      } else {
+        // No non-canceled runs (all runs were canceled)
+        otherCount++;
       }
 
       return { repoName: repo.name, runs: sortedRuns };
@@ -90,6 +97,10 @@ export default function Dashboard() {
       const bDate = b.runs[0]?.created_at ? new Date(b.runs[0].created_at) : new Date(0);
       return bDate - aDate;
     });
+
+  // Count repos with no workflow runs
+  const reposWithoutRuns = data.repositories.filter(repo => !repo.workflow_runs || repo.workflow_runs.length === 0);
+  otherCount += reposWithoutRuns.length;
 
   return (
     <div className="dashboard">
@@ -104,6 +115,7 @@ export default function Dashboard() {
             successCount={successCount}
             failureCount={failureCount}
             inProgressCount={inProgressCount}
+            otherCount={otherCount}
           />
         </section>
       </section>
