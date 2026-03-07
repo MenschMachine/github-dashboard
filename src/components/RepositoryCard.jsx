@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import BuildBadge from './BuildBadge';
 import { formatDate } from '../utils/dateFormatter';
 import './RepositoryCard.css';
@@ -79,22 +80,33 @@ export default function RepositoryCard({ repoName, runs, prs = [] }) {
       </div>
       {additionalInfo}
       {prs.length > 0 && (
-        <div className="prs-container">
-          <div className="prs-header">Open PRs ({prs.length})</div>
-          {prs.map(pr => (
-            <div key={pr.number} className="pr-item">
-              <a href={pr.html_url} target="_blank" rel="noopener noreferrer" className="pr-title">
-                #{pr.number} {pr.title}
-              </a>
-              <div className="pr-meta">
-                <span className="pr-author">{pr.user}</span>
-                {pr.draft && <span className="pr-draft">Draft</span>}
-                <span className="pr-updated">{formatDate(pr.updated_at)}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <PrsSection prs={prs} />
       )}
+    </div>
+  );
+}
+
+function PrsSection({ prs }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="prs-container">
+      <button className="prs-toggle" onClick={() => setOpen(o => !o)}>
+        <span className={`prs-arrow ${open ? 'prs-arrow-open' : ''}`}>&#9656;</span>
+        Open PRs ({prs.length})
+      </button>
+      {open && prs.map(pr => (
+        <div key={pr.number} className="pr-item">
+          <a href={pr.html_url} target="_blank" rel="noopener noreferrer" className="pr-title">
+            #{pr.number} {pr.title}
+          </a>
+          <div className="pr-meta">
+            <span className="pr-author">{pr.user}</span>
+            {pr.draft && <span className="pr-draft">Draft</span>}
+            <span className="pr-updated">{formatDate(pr.updated_at)}</span>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
