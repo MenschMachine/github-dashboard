@@ -1,11 +1,15 @@
 import './StatsBar.css';
 
-export default function StatsBar({ totalRepos, allGreen, allRed, mixed }) {
+export default function StatsBar({ totalRepos, allGreen, allRed, mixed, openPrs }) {
   return (
     <div className="stats-bar">
       <div className="stat-card">
         <div className="stat-value">{totalRepos}</div>
         <div className="stat-label">Total Repositories</div>
+      </div>
+      <div className="stat-card">
+        <div className="stat-value">{openPrs}</div>
+        <div className="stat-label">Open PRs</div>
       </div>
       <div className="stat-card">
         <div className="stat-value stat-green">{allGreen}</div>

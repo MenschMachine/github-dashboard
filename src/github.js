@@ -27,7 +27,7 @@ export function clearCache() {
   keys.forEach(k => localStorage.removeItem(k));
 }
 
-export async function fetchDashboardData(token, patterns, { reposTtl = 5 * 60 * 1000, runsTtl = 2 * 60 * 1000 } = {}) {
+export async function fetchDashboardData(token, patterns, { reposTtl = 5 * 60 * 1000, runsTtl = 2 * 60 * 1000, prsTtl = 2 * 60 * 1000 } = {}) {
   const octokit = new Octokit({ auth: token });
 
   const orgs = [...new Set(patterns.map(p => p.split('/')[0]))];
@@ -66,19 +66,45 @@ export async function fetchDashboardData(token, patterns, { reposTtl = 5 * 60 * 
         html_url: run.html_url,
       }));
 
+      const prsRaw = await cachedFetch(`gh-cache-prs-${repo.full_name}`, prsTtl, async () => {
+        const { data } = await octokit.pulls.list({
+          owner: repo.owner.login,
+          repo: repo.name,
+          state: 'open',
+          sort: 'updated',
+          direction: 'desc',
+          per_page: 10,
+        });
+        return data;
+      });
+
+      const open_prs = prsRaw.map(pr => ({
+        number: pr.number,
+        title: pr.title,
+        user: pr.user?.login,
+        created_at: pr.created_at,
+        updated_at: pr.updated_at,
+        html_url: pr.html_url,
+        draft: pr.draft,
+        labels: pr.labels?.map(l => l.name) || [],
+      }));
+
       return {
         name: repo.full_name,
         workflow_runs,
+        open_prs,
       };
     })
   );
 
   const totalRuns = repoResults.reduce((sum, r) => sum + r.workflow_runs.length, 0);
+  const totalOpenPrs = repoResults.reduce((sum, r) => sum + r.open_prs.length, 0);
 
   return {
     updated_at: new Date().toISOString(),
     repository_count: repoResults.length,
     total_runs: totalRuns,
+    total_open_prs: totalOpenPrs,
     repositories: repoResults,
   };
 }

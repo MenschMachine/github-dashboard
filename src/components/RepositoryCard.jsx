@@ -2,7 +2,7 @@ import BuildBadge from './BuildBadge';
 import { formatDate } from '../utils/dateFormatter';
 import './RepositoryCard.css';
 
-export default function RepositoryCard({ repoName, runs }) {
+export default function RepositoryCard({ repoName, runs, prs = [] }) {
   // Sort by created_at descending (most recent first)
   const sortedRuns = [...runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
@@ -78,6 +78,23 @@ export default function RepositoryCard({ repoName, runs }) {
         ))}
       </div>
       {additionalInfo}
+      {prs.length > 0 && (
+        <div className="prs-container">
+          <div className="prs-header">Open PRs ({prs.length})</div>
+          {prs.map(pr => (
+            <div key={pr.number} className="pr-item">
+              <a href={pr.html_url} target="_blank" rel="noopener noreferrer" className="pr-title">
+                #{pr.number} {pr.title}
+              </a>
+              <div className="pr-meta">
+                <span className="pr-author">{pr.user}</span>
+                {pr.draft && <span className="pr-draft">Draft</span>}
+                <span className="pr-updated">{formatDate(pr.updated_at)}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

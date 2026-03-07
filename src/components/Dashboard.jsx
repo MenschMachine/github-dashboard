@@ -8,9 +8,11 @@ const LS_TOKEN_KEY = 'gh-dashboard-token';
 const LS_PATTERNS_KEY = 'gh-dashboard-patterns';
 const LS_REPOS_TTL_KEY = 'gh-dashboard-repos-ttl';
 const LS_RUNS_TTL_KEY = 'gh-dashboard-runs-ttl';
+const LS_PRS_TTL_KEY = 'gh-dashboard-prs-ttl';
 const DEFAULT_PATTERNS = 'MenschMachine/pdfdancer-client-*';
 const DEFAULT_REPOS_TTL = 5;
 const DEFAULT_RUNS_TTL = 2;
+const DEFAULT_PRS_TTL = 2;
 
 export default function Dashboard() {
   const [data, setData] = useState(null);
@@ -29,11 +31,15 @@ export default function Dashboard() {
   const [runsTtl, setRunsTtl] = useState(() =>
     Number(localStorage.getItem(LS_RUNS_TTL_KEY)) || DEFAULT_RUNS_TTL
   );
+  const [prsTtl, setPrsTtl] = useState(() =>
+    Number(localStorage.getItem(LS_PRS_TTL_KEY)) || DEFAULT_PRS_TTL
+  );
 
   const [draftToken, setDraftToken] = useState(token);
   const [draftPatterns, setDraftPatterns] = useState(repoPatterns);
   const [draftReposTtl, setDraftReposTtl] = useState(reposTtl);
   const [draftRunsTtl, setDraftRunsTtl] = useState(runsTtl);
+  const [draftPrsTtl, setDraftPrsTtl] = useState(prsTtl);
   const [refreshCounter, setRefreshCounter] = useState(0);
 
   useEffect(() => {
@@ -51,6 +57,7 @@ export default function Dashboard() {
     fetchDashboardData(token, patterns, {
       reposTtl: reposTtl * 60 * 1000,
       runsTtl: runsTtl * 60 * 1000,
+      prsTtl: prsTtl * 60 * 1000,
     })
       .then(result => {
         if (!cancelled) {
@@ -66,17 +73,19 @@ export default function Dashboard() {
       });
 
     return () => { cancelled = true; };
-  }, [token, repoPatterns, reposTtl, runsTtl, refreshCounter]);
+  }, [token, repoPatterns, reposTtl, runsTtl, prsTtl, refreshCounter]);
 
   function handleSave() {
     localStorage.setItem(LS_TOKEN_KEY, draftToken);
     localStorage.setItem(LS_PATTERNS_KEY, draftPatterns);
     localStorage.setItem(LS_REPOS_TTL_KEY, draftReposTtl);
     localStorage.setItem(LS_RUNS_TTL_KEY, draftRunsTtl);
+    localStorage.setItem(LS_PRS_TTL_KEY, draftPrsTtl);
     setToken(draftToken);
     setRepoPatterns(draftPatterns);
     setReposTtl(draftReposTtl);
     setRunsTtl(draftRunsTtl);
+    setPrsTtl(draftPrsTtl);
     setSettingsOpen(false);
   }
 
@@ -126,6 +135,16 @@ export default function Dashboard() {
             min="0"
             value={draftRunsTtl}
             onChange={e => setDraftRunsTtl(Number(e.target.value))}
+          />
+        </div>
+        <div className="settings-field">
+          <label htmlFor="prs-ttl">PRs Cache TTL (min)</label>
+          <input
+            id="prs-ttl"
+            type="number"
+            min="0"
+            value={draftPrsTtl}
+            onChange={e => setDraftPrsTtl(Number(e.target.value))}
           />
         </div>
       </div>
@@ -217,7 +236,7 @@ export default function Dashboard() {
       else if (allFailure) allRedCount++;
       else mixedCount++;
 
-      return { repoName: repo.name, runs: sortedRuns };
+      return { repoName: repo.name, runs: sortedRuns, prs: repo.open_prs || [] };
     })
     .sort((a, b) => {
       const aDate = a.runs[0]?.created_at ? new Date(a.runs[0].created_at) : new Date(0);
@@ -235,6 +254,7 @@ export default function Dashboard() {
             allGreen={allGreenCount}
             allRed={allRedCount}
             mixed={mixedCount}
+            openPrs={data.total_open_prs}
           />
         </section>
       </section>
@@ -243,8 +263,8 @@ export default function Dashboard() {
 
       <section className="dashboard-section elevated-section repositories-section">
         <div className="repositories">
-          {repositories.map(({ repoName, runs }) => (
-            <RepositoryCard key={repoName} repoName={repoName} runs={runs} />
+          {repositories.map(({ repoName, runs, prs }) => (
+            <RepositoryCard key={repoName} repoName={repoName} runs={runs} prs={prs} />
           ))}
         </div>
       </section>
