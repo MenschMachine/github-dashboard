@@ -47,6 +47,10 @@
   color: #ffd54f;
 }
 
+.stat-value.stat-gray {
+  color: #9e9e9e;
+}
+
 .stat-label {
   font-size: 0.75rem;
   color: var(--theme-text-secondary);
