@@ -94,6 +94,24 @@
   justify-content: space-between;
 }
 
+.header-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.settings-field-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.settings-field-row .settings-field {
+  flex: 1;
+}
+
+.settings-field-row input[type="number"] {
+  width: 100%;
+}
+
 .settings-toggle {
   background: none;
   border: 1px solid var(--theme-border);

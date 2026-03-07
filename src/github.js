@@ -18,14 +18,23 @@ async function cachedFetch(key, ttlMs, fetchFn) {
   return data;
 }
 
-export async function fetchDashboardData(token, patterns) {
+export function clearCache() {
+  const keys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('gh-cache-')) keys.push(key);
+  }
+  keys.forEach(k => localStorage.removeItem(k));
+}
+
+export async function fetchDashboardData(token, patterns, { reposTtl = 5 * 60 * 1000, runsTtl = 2 * 60 * 1000 } = {}) {
   const octokit = new Octokit({ auth: token });
 
   const orgs = [...new Set(patterns.map(p => p.split('/')[0]))];
 
   const allRepos = [];
   for (const org of orgs) {
-    const repos = await cachedFetch(`gh-cache-repos-${org}`, 5 * 60 * 1000, () =>
+    const repos = await cachedFetch(`gh-cache-repos-${org}`, reposTtl, () =>
       octokit.paginate(octokit.repos.listForOrg, {
         org,
         per_page: 100,
@@ -39,7 +48,7 @@ export async function fetchDashboardData(token, patterns) {
 
   const repoResults = await Promise.all(
     matched.map(async (repo) => {
-      const data = await cachedFetch(`gh-cache-runs-${repo.full_name}`, 2 * 60 * 1000, async () => {
+      const data = await cachedFetch(`gh-cache-runs-${repo.full_name}`, runsTtl, async () => {
         const { data } = await octokit.actions.listWorkflowRunsForRepo({
           owner: repo.owner.login,
           repo: repo.name,

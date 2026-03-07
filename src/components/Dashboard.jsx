@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
-import { fetchDashboardData } from '../github.js';
+import { fetchDashboardData, clearCache } from '../github.js';
 import StatsBar from './StatsBar';
 import RepositoryCard from './RepositoryCard';
 import './Dashboard.css';
 
 const LS_TOKEN_KEY = 'gh-dashboard-token';
 const LS_PATTERNS_KEY = 'gh-dashboard-patterns';
+const LS_REPOS_TTL_KEY = 'gh-dashboard-repos-ttl';
+const LS_RUNS_TTL_KEY = 'gh-dashboard-runs-ttl';
 const DEFAULT_PATTERNS = 'MenschMachine/pdfdancer-client-*';
+const DEFAULT_REPOS_TTL = 5;
+const DEFAULT_RUNS_TTL = 2;
 
 export default function Dashboard() {
   const [data, setData] = useState(null);
@@ -19,8 +23,18 @@ export default function Dashboard() {
     localStorage.getItem(LS_PATTERNS_KEY) || DEFAULT_PATTERNS
   );
 
+  const [reposTtl, setReposTtl] = useState(() =>
+    Number(localStorage.getItem(LS_REPOS_TTL_KEY)) || DEFAULT_REPOS_TTL
+  );
+  const [runsTtl, setRunsTtl] = useState(() =>
+    Number(localStorage.getItem(LS_RUNS_TTL_KEY)) || DEFAULT_RUNS_TTL
+  );
+
   const [draftToken, setDraftToken] = useState(token);
   const [draftPatterns, setDraftPatterns] = useState(repoPatterns);
+  const [draftReposTtl, setDraftReposTtl] = useState(reposTtl);
+  const [draftRunsTtl, setDraftRunsTtl] = useState(runsTtl);
+  const [refreshCounter, setRefreshCounter] = useState(0);
 
   useEffect(() => {
     if (!token) return;
@@ -34,7 +48,10 @@ export default function Dashboard() {
       .map(p => p.trim())
       .filter(Boolean);
 
-    fetchDashboardData(token, patterns)
+    fetchDashboardData(token, patterns, {
+      reposTtl: reposTtl * 60 * 1000,
+      runsTtl: runsTtl * 60 * 1000,
+    })
       .then(result => {
         if (!cancelled) {
           setData(result);
@@ -49,14 +66,23 @@ export default function Dashboard() {
       });
 
     return () => { cancelled = true; };
-  }, [token, repoPatterns]);
+  }, [token, repoPatterns, reposTtl, runsTtl, refreshCounter]);
 
   function handleSave() {
     localStorage.setItem(LS_TOKEN_KEY, draftToken);
     localStorage.setItem(LS_PATTERNS_KEY, draftPatterns);
+    localStorage.setItem(LS_REPOS_TTL_KEY, draftReposTtl);
+    localStorage.setItem(LS_RUNS_TTL_KEY, draftRunsTtl);
     setToken(draftToken);
     setRepoPatterns(draftPatterns);
+    setReposTtl(draftReposTtl);
+    setRunsTtl(draftRunsTtl);
     setSettingsOpen(false);
+  }
+
+  function handleRefresh() {
+    clearCache();
+    setRefreshCounter(c => c + 1);
   }
 
   const settingsPanel = (
@@ -81,6 +107,28 @@ export default function Dashboard() {
           placeholder="org/repo-*"
         />
       </div>
+      <div className="settings-field-row">
+        <div className="settings-field">
+          <label htmlFor="repos-ttl">Repos Cache TTL (min)</label>
+          <input
+            id="repos-ttl"
+            type="number"
+            min="0"
+            value={draftReposTtl}
+            onChange={e => setDraftReposTtl(Number(e.target.value))}
+          />
+        </div>
+        <div className="settings-field">
+          <label htmlFor="runs-ttl">Runs Cache TTL (min)</label>
+          <input
+            id="runs-ttl"
+            type="number"
+            min="0"
+            value={draftRunsTtl}
+            onChange={e => setDraftRunsTtl(Number(e.target.value))}
+          />
+        </div>
+      </div>
       <button className="settings-save" onClick={handleSave}>Save</button>
     </div>
   );
@@ -89,13 +137,23 @@ export default function Dashboard() {
     <header className="dashboard-header elevated-section">
       <div className="dashboard-header-row">
         <h1 className="dashboard-title">GitHub Actions Dashboard</h1>
-        <button
-          className="settings-toggle"
-          onClick={() => setSettingsOpen(!settingsOpen)}
-          aria-label="Settings"
-        >
-          &#9881;
-        </button>
+        <div className="header-buttons">
+          <button
+            className="settings-toggle"
+            onClick={handleRefresh}
+            aria-label="Refresh"
+            title="Clear cache and refresh"
+          >
+            &#8635;
+          </button>
+          <button
+            className="settings-toggle"
+            onClick={() => setSettingsOpen(!settingsOpen)}
+            aria-label="Settings"
+          >
+            &#9881;
+          </button>
+        </div>
       </div>
     </header>
   );
