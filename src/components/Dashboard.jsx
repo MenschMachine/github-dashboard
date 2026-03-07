@@ -67,7 +67,17 @@ export default function Dashboard() {
       })
       .catch(err => {
         if (!cancelled) {
-          setError(err.message);
+          const status = err.status || err.response?.status;
+          if (status === 401) {
+            setError('Bad credentials — check your GitHub token.');
+          } else if (status === 403) {
+            setError('Access denied — your token may lack the required scopes.');
+          } else if (status === 404) {
+            setError('Not found — check your repository patterns and org names.');
+          } else {
+            setError(err.message);
+          }
+          setSettingsOpen(true);
           setLoading(false);
         }
       });
