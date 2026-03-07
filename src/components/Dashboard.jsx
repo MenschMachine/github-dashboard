@@ -191,7 +191,7 @@ export default function Dashboard() {
     );
   }
 
-  if (loading) {
+  if (loading || !data) {
     return (
       <div className="dashboard">
         <div className="dashboard-hero">
