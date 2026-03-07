@@ -1,6 +1,23 @@
 import { Octokit } from '@octokit/rest';
 import picomatch from 'picomatch';
 
+async function cachedFetch(key, ttlMs, fetchFn) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (raw) {
+      const { data, timestamp } = JSON.parse(raw);
+      if (Date.now() - timestamp < ttlMs) {
+        return data;
+      }
+    }
+  } catch {
+    // corrupted cache entry, ignore
+  }
+  const data = await fetchFn();
+  localStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
+  return data;
+}
+
 export async function fetchDashboardData(token, patterns) {
   const octokit = new Octokit({ auth: token });
 
@@ -8,10 +25,12 @@ export async function fetchDashboardData(token, patterns) {
 
   const allRepos = [];
   for (const org of orgs) {
-    const repos = await octokit.paginate(octokit.repos.listForOrg, {
-      org,
-      per_page: 100,
-    });
+    const repos = await cachedFetch(`gh-cache-repos-${org}`, 5 * 60 * 1000, () =>
+      octokit.paginate(octokit.repos.listForOrg, {
+        org,
+        per_page: 100,
+      })
+    );
     allRepos.push(...repos);
   }
 
@@ -20,10 +39,13 @@ export async function fetchDashboardData(token, patterns) {
 
   const repoResults = await Promise.all(
     matched.map(async (repo) => {
-      const { data } = await octokit.actions.listWorkflowRunsForRepo({
-        owner: repo.owner.login,
-        repo: repo.name,
-        per_page: 20,
+      const data = await cachedFetch(`gh-cache-runs-${repo.full_name}`, 2 * 60 * 1000, async () => {
+        const { data } = await octokit.actions.listWorkflowRunsForRepo({
+          owner: repo.owner.login,
+          repo: repo.name,
+          per_page: 20,
+        });
+        return data;
       });
 
       const workflow_runs = data.workflow_runs.map(run => ({
