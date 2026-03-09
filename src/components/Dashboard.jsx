@@ -201,20 +201,6 @@ export default function Dashboard() {
     );
   }
 
-  if (loading || !data) {
-    return (
-      <div className="dashboard">
-        <div className="dashboard-hero">
-          {header}
-          <div className="dashboard-status elevated-section">
-            <div className="loading">Loading workflow data...</div>
-          </div>
-        </div>
-        {settingsOpen && settingsPanel}
-      </div>
-    );
-  }
-
   if (error) {
     return (
       <div className="dashboard">
@@ -222,6 +208,20 @@ export default function Dashboard() {
           {header}
           <div className="dashboard-status elevated-section">
             <div className="error">Error: {error}</div>
+          </div>
+        </div>
+        {settingsOpen && settingsPanel}
+      </div>
+    );
+  }
+
+  if (loading || !data) {
+    return (
+      <div className="dashboard">
+        <div className="dashboard-hero">
+          {header}
+          <div className="dashboard-status elevated-section">
+            <div className="loading">Loading workflow data...</div>
           </div>
         </div>
         {settingsOpen && settingsPanel}
