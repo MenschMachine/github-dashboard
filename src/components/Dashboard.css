@@ -119,9 +119,15 @@
   color: var(--theme-text-secondary);
   font-size: 1.4rem;
   cursor: pointer;
-  padding: 0.3rem 0.5rem;
+  padding: 0.5rem 0.7rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
   transition: color 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .settings-toggle:hover {
