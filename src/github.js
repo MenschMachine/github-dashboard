@@ -14,7 +14,11 @@ async function cachedFetch(key, ttlMs, fetchFn) {
     // corrupted cache entry, ignore
   }
   const data = await fetchFn();
-  localStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
+  try {
+    localStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
+  } catch {
+    // storage full — still return the data, just skip caching
+  }
   return data;
 }
 
@@ -34,12 +38,13 @@ export async function fetchDashboardData(token, patterns, { reposTtl = 5 * 60 * 
 
   const allRepos = [];
   for (const org of orgs) {
-    const repos = await cachedFetch(`gh-cache-repos-${org}`, reposTtl, () =>
-      octokit.paginate(octokit.repos.listForOrg, {
+    const repos = await cachedFetch(`gh-cache-repos-${org}`, reposTtl, async () => {
+      const raw = await octokit.paginate(octokit.repos.listForOrg, {
         org,
         per_page: 100,
-      })
-    );
+      });
+      return raw.map(r => ({ full_name: r.full_name, name: r.name, owner: { login: r.owner.login } }));
+    });
     allRepos.push(...repos);
   }
 
