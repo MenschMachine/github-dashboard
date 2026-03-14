@@ -30,10 +30,31 @@ function getErrorMessage(err) {
   return err.message;
 }
 
+function getLatestWorkflowRun(repo) {
+  if (!repo.workflow_runs || repo.workflow_runs.length === 0) {
+    return null;
+  }
+
+  return repo.workflow_runs.reduce((latestRun, run) => {
+    const timestamp = Date.parse(run.created_at);
+    const latestTimestamp = latestRun ? Date.parse(latestRun.created_at) : null;
+
+    if (Number.isNaN(timestamp)) {
+      return latestRun;
+    }
+
+    if (latestTimestamp === null || Number.isNaN(latestTimestamp) || timestamp > latestTimestamp) {
+      return run;
+    }
+
+    return latestRun;
+  }, null);
+}
+
 function getRepositoryStatusCounts(repositories) {
-  let allGreen = 0;
-  let allRed = 0;
-  let mixed = 0;
+  let success = 0;
+  let failed = 0;
+  let other = 0;
   let openPrs = 0;
 
   repositories.forEach(repo => {
@@ -41,37 +62,23 @@ function getRepositoryStatusCounts(repositories) {
 
     openPrs += repo.open_prs.length;
 
-    if (repo.workflow_runs.length === 0) return;
+    const latestRun = getLatestWorkflowRun(repo);
+    if (!latestRun) return;
 
-    const last5 = [...repo.workflow_runs]
-      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-      .slice(0, 5);
-
-    if (last5.length === 0) return;
-
-    const allSuccess = last5.every(run => run.conclusion === 'success');
-    const allFailure = last5.every(run => run.conclusion === 'failure');
-
-    if (allSuccess) allGreen++;
-    else if (allFailure) allRed++;
-    else mixed++;
+    if (latestRun.conclusion === 'success') success++;
+    else if (latestRun.conclusion === 'failure') failed++;
+    else other++;
   });
 
-  return { allGreen, allRed, mixed, openPrs };
+  return { success, failed, other, openPrs };
 }
 
 function getLatestRunTimestamp(repo) {
-  if (!repo.workflow_runs || repo.workflow_runs.length === 0) {
-    return null;
-  }
+  const latestRun = getLatestWorkflowRun(repo);
+  if (!latestRun) return null;
 
-  return repo.workflow_runs.reduce((latest, run) => {
-    const timestamp = Date.parse(run.created_at);
-    if (Number.isNaN(timestamp)) {
-      return latest;
-    }
-    return latest === null || timestamp > latest ? timestamp : latest;
-  }, null);
+  const timestamp = Date.parse(latestRun.created_at);
+  return Number.isNaN(timestamp) ? null : timestamp;
 }
 
 function compareRepositoriesByLatestRun(a, b) {
@@ -348,7 +355,7 @@ export default function Dashboard() {
 
   const loadedRepoCount = repositories.filter(repo => !repo.loading).length;
   const hasBackgroundLoading = loadedRepoCount < matchedRepoCount;
-  const { allGreen, allRed, mixed, openPrs } = getRepositoryStatusCounts(repositories);
+  const { success, failed, other, openPrs } = getRepositoryStatusCounts(repositories);
   const sortedRepositories = [...repositories].sort(compareRepositoriesByLatestRun);
 
   return (
@@ -358,9 +365,9 @@ export default function Dashboard() {
         <section className="dashboard-hero-panel elevated-section">
           <StatsBar
             totalRepos={matchedRepoCount}
-            allGreen={allGreen}
-            allRed={allRed}
-            mixed={mixed}
+            success={success}
+            failed={failed}
+            other={other}
             openPrs={openPrs}
           />
           <div className="dashboard-meta">
