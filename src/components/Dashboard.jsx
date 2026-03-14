@@ -60,6 +60,34 @@ function getRepositoryStatusCounts(repositories) {
   return { allGreen, allRed, mixed, openPrs };
 }
 
+function getLatestRunTimestamp(repo) {
+  if (!repo.workflow_runs || repo.workflow_runs.length === 0) {
+    return null;
+  }
+
+  return repo.workflow_runs.reduce((latest, run) => {
+    const timestamp = Date.parse(run.created_at);
+    if (Number.isNaN(timestamp)) {
+      return latest;
+    }
+    return latest === null || timestamp > latest ? timestamp : latest;
+  }, null);
+}
+
+function compareRepositoriesByLatestRun(a, b) {
+  const aLatest = getLatestRunTimestamp(a);
+  const bLatest = getLatestRunTimestamp(b);
+
+  if (aLatest !== null && bLatest !== null && aLatest !== bLatest) {
+    return bLatest - aLatest;
+  }
+
+  if (aLatest !== null) return -1;
+  if (bLatest !== null) return 1;
+
+  return a.name.localeCompare(b.name);
+}
+
 export default function Dashboard() {
   const [repositories, setRepositories] = useState([]);
   const [matchedRepoCount, setMatchedRepoCount] = useState(0);
@@ -321,6 +349,7 @@ export default function Dashboard() {
   const loadedRepoCount = repositories.filter(repo => !repo.loading).length;
   const hasBackgroundLoading = loadedRepoCount < matchedRepoCount;
   const { allGreen, allRed, mixed, openPrs } = getRepositoryStatusCounts(repositories);
+  const sortedRepositories = [...repositories].sort(compareRepositoriesByLatestRun);
 
   return (
     <div className="dashboard">
@@ -351,7 +380,7 @@ export default function Dashboard() {
           <div className="loading">No repositories matched the configured patterns.</div>
         ) : (
           <div className="repositories">
-            {repositories.map(repo => (
+            {sortedRepositories.map(repo => (
               <RepositoryCard
                 key={repo.name}
                 repoName={repo.name}

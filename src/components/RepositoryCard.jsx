@@ -72,9 +72,11 @@ export default function RepositoryCard({ repoName, runs = [], prs = [], loading 
             {repoName}
           </a>
         </div>
-        <div className={`status-info ${loading ? 'status-loading' : error ? 'status-error' : 'status-ready'}`}>
-          {loading ? 'Loading' : error ? 'Unavailable' : 'Ready'}
-        </div>
+        {(loading || error) && (
+          <div className={`status-info ${loading ? 'status-loading' : 'status-error'}`}>
+            {loading ? 'Loading' : 'Unavailable'}
+          </div>
+        )}
       </div>
 
       {loading ? (
