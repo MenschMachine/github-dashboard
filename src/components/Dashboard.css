@@ -45,12 +45,14 @@
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--theme-tertiary);
+  text-align: center;
 }
 
 .dashboard-hero-panel {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1rem;
 }
 
 .dashboard-section {

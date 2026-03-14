@@ -3,7 +3,7 @@ import BuildBadge from './BuildBadge';
 import { formatDate } from '../utils/dateFormatter';
 import './RepositoryCard.css';
 
-export default function RepositoryCard({ repoName, runs, prs = [] }) {
+export default function RepositoryCard({ repoName, runs = [], prs = [], loading = false, error = null }) {
   // Sort by created_at descending (most recent first)
   const sortedRuns = [...runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
@@ -14,8 +14,8 @@ export default function RepositoryCard({ repoName, runs, prs = [] }) {
   const previousBuilds = sortedRuns.slice(5);
 
   // Check if all are success or all are failure
-  const allSuccess = last5.every(r => r.conclusion === 'success');
-  const allFailure = last5.every(r => r.conclusion === 'failure');
+  const allSuccess = last5.length > 0 && last5.every(r => r.conclusion === 'success');
+  const allFailure = last5.length > 0 && last5.every(r => r.conclusion === 'failure');
 
   let additionalInfo = null;
 
@@ -64,7 +64,7 @@ export default function RepositoryCard({ repoName, runs, prs = [] }) {
   const repoUrl = `https://github.com/${repoName}`;
 
   return (
-    <div className="repo-card">
+    <div className={`repo-card${loading ? ' repo-card-loading' : ''}${error ? ' repo-card-error' : ''}`}>
       <div className="repo-header">
         <div className="repo-name">
           <span className="icon">📦</span>
@@ -72,16 +72,48 @@ export default function RepositoryCard({ repoName, runs, prs = [] }) {
             {repoName}
           </a>
         </div>
+        <div className={`status-info ${loading ? 'status-loading' : error ? 'status-error' : 'status-ready'}`}>
+          {loading ? 'Loading' : error ? 'Unavailable' : 'Ready'}
+        </div>
       </div>
+
+      {loading ? (
+        <LoadingState />
+      ) : error ? (
+        <div className="repo-message repo-message-error">{error}</div>
+      ) : (
+        <>
+          {last5.length > 0 ? (
+            <>
+              <div className="builds-container">
+                {last5.map((run) => (
+                  <BuildBadge key={run.run_id} run={run} />
+                ))}
+              </div>
+              {additionalInfo}
+            </>
+          ) : (
+            <div className="repo-message">No recent workflow runs found.</div>
+          )}
+          {prs.length > 0 && (
+            <PrsSection prs={prs} />
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
+function LoadingState() {
+  return (
+    <div className="repo-loading-state" aria-hidden="true">
       <div className="builds-container">
-        {last5.map((run) => (
-          <BuildBadge key={run.run_id} run={run} />
+        {Array.from({ length: 3 }, (_, index) => (
+          <div key={index} className="build-badge build-badge-skeleton" />
         ))}
       </div>
-      {additionalInfo}
-      {prs.length > 0 && (
-        <PrsSection prs={prs} />
-      )}
+      <div className="repo-message repo-message-skeleton skeleton-block" />
+      <div className="repo-message repo-message-skeleton skeleton-block skeleton-block-short" />
     </div>
   );
 }

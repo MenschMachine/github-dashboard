@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { fetchDashboardData, clearCache } from '../github.js';
+import { useEffect, useState } from 'react';
+import { clearCache, createDashboardClient } from '../github.js';
 import StatsBar from './StatsBar';
 import RepositoryCard from './RepositoryCard';
 import './Dashboard.css';
@@ -14,9 +14,56 @@ const DEFAULT_REPOS_TTL = 5;
 const DEFAULT_RUNS_TTL = 2;
 const DEFAULT_PRS_TTL = 2;
 
+function getErrorMessage(err) {
+  const status = err.status || err.response?.status;
+
+  if (status === 401) {
+    return 'Bad credentials — check your GitHub token.';
+  }
+  if (status === 403) {
+    return 'Access denied — your token may lack the required scopes.';
+  }
+  if (status === 404) {
+    return 'Not found — check your repository patterns and org names.';
+  }
+
+  return err.message;
+}
+
+function getRepositoryStatusCounts(repositories) {
+  let allGreen = 0;
+  let allRed = 0;
+  let mixed = 0;
+  let openPrs = 0;
+
+  repositories.forEach(repo => {
+    if (repo.loading || repo.error) return;
+
+    openPrs += repo.open_prs.length;
+
+    if (repo.workflow_runs.length === 0) return;
+
+    const last5 = [...repo.workflow_runs]
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+      .slice(0, 5);
+
+    if (last5.length === 0) return;
+
+    const allSuccess = last5.every(run => run.conclusion === 'success');
+    const allFailure = last5.every(run => run.conclusion === 'failure');
+
+    if (allSuccess) allGreen++;
+    else if (allFailure) allRed++;
+    else mixed++;
+  });
+
+  return { allGreen, allRed, mixed, openPrs };
+}
+
 export default function Dashboard() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(() => !!localStorage.getItem(LS_TOKEN_KEY));
+  const [repositories, setRepositories] = useState([]);
+  const [matchedRepoCount, setMatchedRepoCount] = useState(0);
+  const [discovering, setDiscovering] = useState(() => !!localStorage.getItem(LS_TOKEN_KEY));
   const [error, setError] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
@@ -46,39 +93,73 @@ export default function Dashboard() {
     if (!token) return;
 
     let cancelled = false;
-    setLoading(true);
-    setError(null);
 
     const patterns = repoPatterns
       .split('\n')
       .map(p => p.trim())
       .filter(Boolean);
 
-    fetchDashboardData(token, patterns, {
+    const client = createDashboardClient(token);
+    const ttlOptions = {
       reposTtl: reposTtl * 60 * 1000,
       runsTtl: runsTtl * 60 * 1000,
       prsTtl: prsTtl * 60 * 1000,
-    })
-      .then(result => {
-        if (!cancelled) {
-          setData(result);
-          setLoading(false);
-        }
+    };
+
+    client.fetchMatchedRepositories(patterns, ttlOptions)
+      .then(matchedRepos => {
+        if (cancelled) return;
+
+        setMatchedRepoCount(matchedRepos.length);
+        setRepositories(
+          matchedRepos.map(repo => ({
+            name: repo.full_name,
+            workflow_runs: [],
+            open_prs: [],
+            loading: true,
+            error: null,
+          }))
+        );
+        setDiscovering(false);
+
+        matchedRepos.forEach(repo => {
+          client.fetchRepositoryData(repo, ttlOptions)
+            .then(result => {
+              if (cancelled) return;
+
+              setRepositories(prev => prev.map(current =>
+                current.name === repo.full_name
+                  ? {
+                      ...current,
+                      ...result,
+                      loading: false,
+                      error: null,
+                    }
+                  : current
+              ));
+            })
+            .catch(err => {
+              if (cancelled) return;
+
+              setRepositories(prev => prev.map(current =>
+                current.name === repo.full_name
+                  ? {
+                      ...current,
+                      workflow_runs: [],
+                      open_prs: [],
+                      loading: false,
+                      error: getErrorMessage(err),
+                    }
+                  : current
+              ));
+            });
+        });
       })
       .catch(err => {
         if (!cancelled) {
-          const status = err.status || err.response?.status;
-          if (status === 401) {
-            setError('Bad credentials — check your GitHub token.');
-          } else if (status === 403) {
-            setError('Access denied — your token may lack the required scopes.');
-          } else if (status === 404) {
-            setError('Not found — check your repository patterns and org names.');
-          } else {
-            setError(err.message);
-          }
+          setError(getErrorMessage(err));
           setSettingsOpen(true);
-          setLoading(false);
+          setDiscovering(false);
         }
       });
 
@@ -91,6 +172,10 @@ export default function Dashboard() {
     localStorage.setItem(LS_REPOS_TTL_KEY, draftReposTtl);
     localStorage.setItem(LS_RUNS_TTL_KEY, draftRunsTtl);
     localStorage.setItem(LS_PRS_TTL_KEY, draftPrsTtl);
+    setRepositories([]);
+    setMatchedRepoCount(0);
+    setError(null);
+    setDiscovering(!!draftToken);
     setToken(draftToken);
     setRepoPatterns(draftPatterns);
     setReposTtl(draftReposTtl);
@@ -101,6 +186,10 @@ export default function Dashboard() {
 
   function handleRefresh() {
     clearCache();
+    setRepositories([]);
+    setMatchedRepoCount(0);
+    setError(null);
+    setDiscovering(!!token);
     setRefreshCounter(c => c + 1);
   }
 
@@ -215,13 +304,13 @@ export default function Dashboard() {
     );
   }
 
-  if (loading || !data) {
+  if (discovering) {
     return (
       <div className="dashboard">
         <div className="dashboard-hero">
           {header}
           <div className="dashboard-status elevated-section">
-            <div className="loading">Loading workflow data...</div>
+            <div className="loading">Discovering repositories...</div>
           </div>
         </div>
         {settingsOpen && settingsPanel}
@@ -229,30 +318,9 @@ export default function Dashboard() {
     );
   }
 
-  let allGreenCount = 0;
-  let allRedCount = 0;
-  let mixedCount = 0;
-
-  const repositories = data.repositories
-    .filter(repo => repo.workflow_runs && repo.workflow_runs.length > 0)
-    .map(repo => {
-      const sortedRuns = [...repo.workflow_runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-      const last5 = sortedRuns.slice(0, 5);
-
-      const allSuccess = last5.every(r => r.conclusion === 'success');
-      const allFailure = last5.every(r => r.conclusion === 'failure');
-
-      if (allSuccess) allGreenCount++;
-      else if (allFailure) allRedCount++;
-      else mixedCount++;
-
-      return { repoName: repo.name, runs: sortedRuns, prs: repo.open_prs || [] };
-    })
-    .sort((a, b) => {
-      const aDate = a.runs[0]?.created_at ? new Date(a.runs[0].created_at) : new Date(0);
-      const bDate = b.runs[0]?.created_at ? new Date(b.runs[0].created_at) : new Date(0);
-      return bDate - aDate;
-    });
+  const loadedRepoCount = repositories.filter(repo => !repo.loading).length;
+  const hasBackgroundLoading = loadedRepoCount < matchedRepoCount;
+  const { allGreen, allRed, mixed, openPrs } = getRepositoryStatusCounts(repositories);
 
   return (
     <div className="dashboard">
@@ -260,23 +328,41 @@ export default function Dashboard() {
         {header}
         <section className="dashboard-hero-panel elevated-section">
           <StatsBar
-            totalRepos={data.repository_count}
-            allGreen={allGreenCount}
-            allRed={allRedCount}
-            mixed={mixedCount}
-            openPrs={data.total_open_prs}
+            totalRepos={matchedRepoCount}
+            allGreen={allGreen}
+            allRed={allRed}
+            mixed={mixed}
+            openPrs={openPrs}
           />
+          <div className="dashboard-meta">
+            {matchedRepoCount === 0
+              ? 'No repositories matched the current patterns.'
+              : hasBackgroundLoading
+                ? `Loaded ${loadedRepoCount} of ${matchedRepoCount} repositories`
+                : `Loaded all ${matchedRepoCount} repositories`}
+          </div>
         </section>
       </section>
 
       {settingsOpen && settingsPanel}
 
       <section className="dashboard-section elevated-section repositories-section">
-        <div className="repositories">
-          {repositories.map(({ repoName, runs, prs }) => (
-            <RepositoryCard key={repoName} repoName={repoName} runs={runs} prs={prs} />
-          ))}
-        </div>
+        {matchedRepoCount === 0 ? (
+          <div className="loading">No repositories matched the configured patterns.</div>
+        ) : (
+          <div className="repositories">
+            {repositories.map(repo => (
+              <RepositoryCard
+                key={repo.name}
+                repoName={repo.name}
+                runs={repo.workflow_runs}
+                prs={repo.open_prs}
+                loading={repo.loading}
+                error={repo.error}
+              />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );

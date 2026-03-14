@@ -31,29 +31,63 @@ export function clearCache() {
   keys.forEach(k => localStorage.removeItem(k));
 }
 
-export async function fetchDashboardData(token, patterns, { reposTtl = 5 * 60 * 1000, runsTtl = 2 * 60 * 1000, prsTtl = 2 * 60 * 1000 } = {}) {
+function mapRepository(repo) {
+  return {
+    full_name: repo.full_name,
+    name: repo.name,
+    owner: { login: repo.owner.login },
+  };
+}
+
+function mapRepositoryData(repo, runsData, prsData) {
+  return {
+    name: repo.full_name,
+    workflow_runs: runsData.workflow_runs.map(run => ({
+      run_id: run.id,
+      name: run.name,
+      conclusion: run.conclusion,
+      status: run.status,
+      created_at: run.created_at,
+      html_url: run.html_url,
+    })),
+    open_prs: prsData.map(pr => ({
+      number: pr.number,
+      title: pr.title,
+      user: pr.user?.login,
+      created_at: pr.created_at,
+      updated_at: pr.updated_at,
+      html_url: pr.html_url,
+      draft: pr.draft,
+      labels: pr.labels?.map(l => l.name) || [],
+    })),
+  };
+}
+
+export function createDashboardClient(token) {
   const octokit = new Octokit({ auth: token });
 
-  const orgs = [...new Set(patterns.map(p => p.split('/')[0]))];
+  return {
+    async fetchMatchedRepositories(patterns, { reposTtl = 5 * 60 * 1000 } = {}) {
+      const orgs = [...new Set(patterns.map(p => p.split('/')[0]))];
 
-  const allRepos = [];
-  for (const org of orgs) {
-    const repos = await cachedFetch(`gh-cache-repos-${org}`, reposTtl, async () => {
-      const raw = await octokit.paginate(octokit.repos.listForOrg, {
-        org,
-        per_page: 100,
-      });
-      return raw.map(r => ({ full_name: r.full_name, name: r.name, owner: { login: r.owner.login } }));
-    });
-    allRepos.push(...repos);
-  }
+      const allRepos = [];
+      for (const org of orgs) {
+        const repos = await cachedFetch(`gh-cache-repos-${org}`, reposTtl, async () => {
+          const raw = await octokit.paginate(octokit.repos.listForOrg, {
+            org,
+            per_page: 100,
+          });
+          return raw.map(mapRepository);
+        });
+        allRepos.push(...repos);
+      }
 
-  const isMatch = picomatch(patterns);
-  const matched = allRepos.filter(r => isMatch(r.full_name));
+      const isMatch = picomatch(patterns);
+      return allRepos.filter(repo => isMatch(repo.full_name));
+    },
 
-  const repoResults = await Promise.all(
-    matched.map(async (repo) => {
-      const data = await cachedFetch(`gh-cache-runs-${repo.full_name}`, runsTtl, async () => {
+    async fetchRepositoryData(repo, { runsTtl = 2 * 60 * 1000, prsTtl = 2 * 60 * 1000 } = {}) {
+      const runsData = await cachedFetch(`gh-cache-runs-${repo.full_name}`, runsTtl, async () => {
         const { data } = await octokit.actions.listWorkflowRunsForRepo({
           owner: repo.owner.login,
           repo: repo.name,
@@ -62,16 +96,7 @@ export async function fetchDashboardData(token, patterns, { reposTtl = 5 * 60 * 
         return data;
       });
 
-      const workflow_runs = data.workflow_runs.map(run => ({
-        run_id: run.id,
-        name: run.name,
-        conclusion: run.conclusion,
-        status: run.status,
-        created_at: run.created_at,
-        html_url: run.html_url,
-      }));
-
-      const prsRaw = await cachedFetch(`gh-cache-prs-${repo.full_name}`, prsTtl, async () => {
+      const prsData = await cachedFetch(`gh-cache-prs-${repo.full_name}`, prsTtl, async () => {
         const { data } = await octokit.pulls.list({
           owner: repo.owner.login,
           repo: repo.name,
@@ -83,33 +108,7 @@ export async function fetchDashboardData(token, patterns, { reposTtl = 5 * 60 * 
         return data;
       });
 
-      const open_prs = prsRaw.map(pr => ({
-        number: pr.number,
-        title: pr.title,
-        user: pr.user?.login,
-        created_at: pr.created_at,
-        updated_at: pr.updated_at,
-        html_url: pr.html_url,
-        draft: pr.draft,
-        labels: pr.labels?.map(l => l.name) || [],
-      }));
-
-      return {
-        name: repo.full_name,
-        workflow_runs,
-        open_prs,
-      };
-    })
-  );
-
-  const totalRuns = repoResults.reduce((sum, r) => sum + r.workflow_runs.length, 0);
-  const totalOpenPrs = repoResults.reduce((sum, r) => sum + r.open_prs.length, 0);
-
-  return {
-    updated_at: new Date().toISOString(),
-    repository_count: repoResults.length,
-    total_runs: totalRuns,
-    total_open_prs: totalOpenPrs,
-    repositories: repoResults,
+      return mapRepositoryData(repo, runsData, prsData);
+    },
   };
 }
