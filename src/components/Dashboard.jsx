@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { clearCache, createDashboardClient } from '../github.js';
 import StatsBar from './StatsBar';
 import RepositoryCard from './RepositoryCard';
@@ -58,7 +58,9 @@ function getRepositoryStatusCounts(repositories) {
   let openPrs = 0;
 
   repositories.forEach(repo => {
-    if (repo.loading || repo.error) return;
+    const hasData = repo.workflow_runs.length > 0 || repo.open_prs.length > 0;
+
+    if ((repo.loading || repo.error) && !hasData) return;
 
     openPrs += repo.open_prs.length;
 
@@ -95,10 +97,43 @@ function compareRepositoriesByLatestRun(a, b) {
   return a.name.localeCompare(b.name);
 }
 
+function createPlaceholderRepository(name) {
+  return {
+    name,
+    workflow_runs: [],
+    open_prs: [],
+    loading: true,
+    refreshing: false,
+    error: null,
+  };
+}
+
+function mergeRepositoriesWithMatches(previousRepositories, matchedRepos) {
+  const previousByName = new Map(previousRepositories.map(repo => [repo.name, repo]));
+
+  return matchedRepos.map(repo => {
+    const previous = previousByName.get(repo.full_name);
+
+    if (!previous) {
+      return createPlaceholderRepository(repo.full_name);
+    }
+
+    const hasExistingData = previous.workflow_runs.length > 0 || previous.open_prs.length > 0;
+
+    return {
+      ...previous,
+      loading: !hasExistingData,
+      refreshing: hasExistingData,
+      error: null,
+    };
+  });
+}
+
 export default function Dashboard() {
   const [repositories, setRepositories] = useState([]);
   const [matchedRepoCount, setMatchedRepoCount] = useState(0);
   const [discovering, setDiscovering] = useState(() => !!localStorage.getItem(LS_TOKEN_KEY));
+  const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
@@ -123,11 +158,23 @@ export default function Dashboard() {
   const [draftRunsTtl, setDraftRunsTtl] = useState(runsTtl);
   const [draftPrsTtl, setDraftPrsTtl] = useState(prsTtl);
   const [refreshCounter, setRefreshCounter] = useState(0);
+  const repositoriesRef = useRef(repositories);
+  const matchedRepoCountRef = useRef(matchedRepoCount);
+
+  useEffect(() => {
+    repositoriesRef.current = repositories;
+  }, [repositories]);
+
+  useEffect(() => {
+    matchedRepoCountRef.current = matchedRepoCount;
+  }, [matchedRepoCount]);
 
   useEffect(() => {
     if (!token) return;
 
     let cancelled = false;
+    const hasExistingResults =
+      repositoriesRef.current.length > 0 || matchedRepoCountRef.current > 0;
 
     const patterns = repoPatterns
       .split('\n')
@@ -141,25 +188,28 @@ export default function Dashboard() {
       prsTtl: prsTtl * 60 * 1000,
     };
 
+    setError(null);
+    setDiscovering(!hasExistingResults);
+    setRefreshing(hasExistingResults);
+
     client.fetchMatchedRepositories(patterns, ttlOptions)
       .then(matchedRepos => {
         if (cancelled) return;
 
         setMatchedRepoCount(matchedRepos.length);
-        setRepositories(
-          matchedRepos.map(repo => ({
-            name: repo.full_name,
-            workflow_runs: [],
-            open_prs: [],
-            loading: true,
-            error: null,
-          }))
-        );
+        setRepositories(prev => mergeRepositoriesWithMatches(prev, matchedRepos));
         setDiscovering(false);
 
-        matchedRepos.forEach(repo => {
-          client.fetchRepositoryData(repo, ttlOptions)
-            .then(result => {
+        if (matchedRepos.length === 0) {
+          setRefreshing(false);
+          return;
+        }
+
+        Promise.allSettled(
+          matchedRepos.map(async repo => {
+            try {
+              const result = await client.fetchRepositoryData(repo, ttlOptions);
+
               if (cancelled) return;
 
               setRepositories(prev => prev.map(current =>
@@ -168,26 +218,30 @@ export default function Dashboard() {
                       ...current,
                       ...result,
                       loading: false,
+                      refreshing: false,
                       error: null,
                     }
                   : current
               ));
-            })
-            .catch(err => {
+            } catch (err) {
               if (cancelled) return;
 
               setRepositories(prev => prev.map(current =>
                 current.name === repo.full_name
                   ? {
                       ...current,
-                      workflow_runs: [],
-                      open_prs: [],
                       loading: false,
+                      refreshing: false,
                       error: getErrorMessage(err),
                     }
                   : current
               ));
-            });
+            }
+          })
+        ).finally(() => {
+          if (!cancelled) {
+            setRefreshing(false);
+          }
         });
       })
       .catch(err => {
@@ -195,6 +249,7 @@ export default function Dashboard() {
           setError(getErrorMessage(err));
           setSettingsOpen(true);
           setDiscovering(false);
+          setRefreshing(false);
         }
       });
 
@@ -207,10 +262,13 @@ export default function Dashboard() {
     localStorage.setItem(LS_REPOS_TTL_KEY, draftReposTtl);
     localStorage.setItem(LS_RUNS_TTL_KEY, draftRunsTtl);
     localStorage.setItem(LS_PRS_TTL_KEY, draftPrsTtl);
-    setRepositories([]);
-    setMatchedRepoCount(0);
     setError(null);
-    setDiscovering(!!draftToken);
+    if (!draftToken) {
+      setRepositories([]);
+      setMatchedRepoCount(0);
+      setDiscovering(false);
+      setRefreshing(false);
+    }
     setToken(draftToken);
     setRepoPatterns(draftPatterns);
     setReposTtl(draftReposTtl);
@@ -221,10 +279,7 @@ export default function Dashboard() {
 
   function handleRefresh() {
     clearCache();
-    setRepositories([]);
-    setMatchedRepoCount(0);
     setError(null);
-    setDiscovering(!!token);
     setRefreshCounter(c => c + 1);
   }
 
@@ -292,10 +347,10 @@ export default function Dashboard() {
         <h1 className="dashboard-title">GitHub Actions Dashboard</h1>
         <div className="header-buttons">
           <button
-            className="settings-toggle"
+            className={`settings-toggle${refreshing || discovering ? ' settings-toggle-spinning' : ''}`}
             onClick={handleRefresh}
             aria-label="Refresh"
-            title="Clear cache and refresh"
+            title={refreshing || discovering ? 'Refreshing' : 'Clear cache and refresh'}
           >
             &#8635;
           </button>
@@ -311,6 +366,8 @@ export default function Dashboard() {
     </header>
   );
 
+  const hasRenderedResults = matchedRepoCount > 0 || repositories.length > 0;
+
   if (!token) {
     return (
       <div className="dashboard">
@@ -325,7 +382,7 @@ export default function Dashboard() {
     );
   }
 
-  if (error) {
+  if (error && !hasRenderedResults) {
     return (
       <div className="dashboard">
         <div className="dashboard-hero">
@@ -339,7 +396,7 @@ export default function Dashboard() {
     );
   }
 
-  if (discovering) {
+  if (discovering && !hasRenderedResults) {
     return (
       <div className="dashboard">
         <div className="dashboard-hero">
@@ -355,6 +412,7 @@ export default function Dashboard() {
 
   const loadedRepoCount = repositories.filter(repo => !repo.loading).length;
   const hasBackgroundLoading = loadedRepoCount < matchedRepoCount;
+  const refreshingRepoCount = repositories.filter(repo => repo.loading || repo.refreshing).length;
   const { success, failed, other, openPrs } = getRepositoryStatusCounts(repositories);
   const sortedRepositories = [...repositories].sort(compareRepositoriesByLatestRun);
 
@@ -363,6 +421,9 @@ export default function Dashboard() {
       <section className="dashboard-hero">
         {header}
         <section className="dashboard-hero-panel elevated-section">
+          {error && (
+            <div className="error dashboard-inline-error">Error: {error}</div>
+          )}
           <StatsBar
             totalRepos={matchedRepoCount}
             success={success}
@@ -370,11 +431,15 @@ export default function Dashboard() {
             other={other}
             openPrs={openPrs}
           />
-          <div className="dashboard-meta">
+          <div className={`dashboard-meta${refreshing ? ' dashboard-meta-refreshing' : ''}`}>
             {matchedRepoCount === 0
-              ? 'No repositories matched the current patterns.'
+              ? refreshing
+                ? 'Refreshing repository matches...'
+                : 'No repositories matched the current patterns.'
               : hasBackgroundLoading
                 ? `Loaded ${loadedRepoCount} of ${matchedRepoCount} repositories`
+                : refreshing
+                  ? `Refreshing ${refreshingRepoCount} of ${matchedRepoCount} repositories`
                 : `Loaded all ${matchedRepoCount} repositories`}
           </div>
         </section>
@@ -394,6 +459,7 @@ export default function Dashboard() {
                 runs={repo.workflow_runs}
                 prs={repo.open_prs}
                 loading={repo.loading}
+                refreshing={repo.refreshing}
                 error={repo.error}
               />
             ))}

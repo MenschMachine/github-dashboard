@@ -46,6 +46,11 @@
   letter-spacing: 0.18em;
   color: var(--theme-tertiary);
   text-align: center;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.dashboard-meta-refreshing {
+  color: var(--theme-text-primary);
 }
 
 .dashboard-hero-panel {
@@ -123,6 +128,10 @@
   color: var(--theme-text-primary);
 }
 
+.settings-toggle-spinning {
+  animation: dashboard-refresh-spin 0.9s linear infinite;
+}
+
 .settings-panel {
   display: flex;
   flex-direction: column;
@@ -186,6 +195,16 @@
   padding: 0.9rem 1.2rem;
   border-radius: var(--theme-border-radius);
   border: 1px solid rgba(244, 67, 54, 0.5);
+}
+
+.dashboard-inline-error {
+  margin-bottom: 0.2rem;
+}
+
+@keyframes dashboard-refresh-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 1024px) {

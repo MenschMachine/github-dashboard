@@ -3,7 +3,14 @@ import BuildBadge from './BuildBadge';
 import { formatDate } from '../utils/dateFormatter';
 import './RepositoryCard.css';
 
-export default function RepositoryCard({ repoName, runs = [], prs = [], loading = false, error = null }) {
+export default function RepositoryCard({
+  repoName,
+  runs = [],
+  prs = [],
+  loading = false,
+  refreshing = false,
+  error = null,
+}) {
   // Sort by created_at descending (most recent first)
   const sortedRuns = [...runs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
@@ -62,9 +69,26 @@ export default function RepositoryCard({ repoName, runs = [], prs = [], loading 
   }
 
   const repoUrl = `https://github.com/${repoName}`;
+  const hasContent = last5.length > 0 || prs.length > 0;
+  const statusClassName = loading
+    ? 'status-loading'
+    : refreshing
+      ? 'status-refreshing'
+      : 'status-error';
+  const statusLabel = loading
+    ? 'Loading'
+    : refreshing
+      ? 'Refreshing'
+      : 'Unavailable';
 
   return (
-    <div className={`repo-card${loading ? ' repo-card-loading' : ''}${error ? ' repo-card-error' : ''}`}>
+    <div
+      className={
+        `repo-card${loading ? ' repo-card-loading' : ''}` +
+        `${refreshing ? ' repo-card-refreshing' : ''}` +
+        `${error ? ' repo-card-error' : ''}`
+      }
+    >
       <div className="repo-header">
         <div className="repo-name">
           <span className="icon">📦</span>
@@ -72,16 +96,16 @@ export default function RepositoryCard({ repoName, runs = [], prs = [], loading 
             {repoName}
           </a>
         </div>
-        {(loading || error) && (
-          <div className={`status-info ${loading ? 'status-loading' : 'status-error'}`}>
-            {loading ? 'Loading' : 'Unavailable'}
+        {(loading || refreshing || error) && (
+          <div className={`status-info ${statusClassName}`}>
+            {statusLabel}
           </div>
         )}
       </div>
 
       {loading ? (
         <LoadingState />
-      ) : error ? (
+      ) : error && !hasContent ? (
         <div className="repo-message repo-message-error">{error}</div>
       ) : (
         <>
@@ -99,6 +123,11 @@ export default function RepositoryCard({ repoName, runs = [], prs = [], loading 
           )}
           {prs.length > 0 && (
             <PrsSection prs={prs} />
+          )}
+          {error && (
+            <div className="repo-message repo-message-warning">
+              Refresh failed: {error}
+            </div>
           )}
         </>
       )}
