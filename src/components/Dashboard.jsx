@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { clearCache, createDashboardClient } from '../github.js';
 import StatsBar from './StatsBar';
 import RepositoryCard from './RepositoryCard';
+import AllPrsSection from './AllPrsSection';
 import './Dashboard.css';
 
 const LS_TOKEN_KEY = 'gh-dashboard-token';
@@ -446,6 +447,8 @@ export default function Dashboard() {
       </section>
 
       {settingsOpen && settingsPanel}
+
+      <AllPrsSection repositories={repositories} token={token} prsTtl={prsTtl} />
 
       <section className="dashboard-section elevated-section repositories-section">
         {matchedRepoCount === 0 ? (

@@ -58,7 +58,7 @@ function mapRepositoryData(repo, runsData, prsData) {
       updated_at: pr.updated_at,
       html_url: pr.html_url,
       draft: pr.draft,
-      labels: pr.labels?.map(l => l.name) || [],
+      labels: pr.labels?.map(l => ({ name: l.name, color: l.color })) || [],
     })),
   };
 }
@@ -109,6 +109,36 @@ export function createDashboardClient(token) {
       });
 
       return mapRepositoryData(repo, runsData, prsData);
+    },
+
+    async fetchPrReviews(owner, repo, pullNumber, { prsTtl = 2 * 60 * 1000 } = {}) {
+      const reviews = await cachedFetch(
+        `gh-cache-reviews-${owner}/${repo}#${pullNumber}`,
+        prsTtl,
+        async () => {
+          const { data } = await octokit.pulls.listReviews({
+            owner,
+            repo,
+            pull_number: pullNumber,
+          });
+          return data;
+        }
+      );
+
+      // Compute status from latest review per user, ignoring COMMENTED/DISMISSED
+      const latestByUser = new Map();
+      for (const review of reviews) {
+        const state = review.state;
+        if (state === 'COMMENTED' || state === 'DISMISSED') continue;
+        const user = review.user?.login;
+        if (!user) continue;
+        latestByUser.set(user, state);
+      }
+
+      const states = [...latestByUser.values()];
+      if (states.includes('CHANGES_REQUESTED')) return 'CHANGES_REQUESTED';
+      if (states.includes('APPROVED')) return 'APPROVED';
+      return 'PENDING';
     },
   };
 }
