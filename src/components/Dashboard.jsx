@@ -342,29 +342,27 @@ export default function Dashboard() {
     </div>
   );
 
-  const header = (
-    <header className="dashboard-header elevated-section">
-      <div className="dashboard-header-row">
-        <h1 className="dashboard-title">GitHub Actions Dashboard</h1>
-        <div className="header-buttons">
-          <button
-            className={`settings-toggle${refreshing || discovering ? ' settings-toggle-spinning' : ''}`}
-            onClick={handleRefresh}
-            aria-label="Refresh"
-            title={refreshing || discovering ? 'Refreshing' : 'Clear cache and refresh'}
-          >
-            &#8635;
-          </button>
-          <button
-            className="settings-toggle"
-            onClick={() => setSettingsOpen(!settingsOpen)}
-            aria-label="Settings"
-          >
-            &#9881;
-          </button>
-        </div>
+  const headerRow = (
+    <div className="dashboard-header-row">
+      <h1 className="dashboard-title">GitHub Actions Dashboard</h1>
+      <div className="header-buttons">
+        <button
+          className={`settings-toggle${refreshing || discovering ? ' settings-toggle-spinning' : ''}`}
+          onClick={handleRefresh}
+          aria-label="Refresh"
+          title={refreshing || discovering ? 'Refreshing' : 'Clear cache and refresh'}
+        >
+          &#8635;
+        </button>
+        <button
+          className="settings-toggle"
+          onClick={() => setSettingsOpen(!settingsOpen)}
+          aria-label="Settings"
+        >
+          &#9881;
+        </button>
       </div>
-    </header>
+    </div>
   );
 
   const hasRenderedResults = matchedRepoCount > 0 || repositories.length > 0;
@@ -372,12 +370,10 @@ export default function Dashboard() {
   if (!token) {
     return (
       <div className="dashboard">
-        <div className="dashboard-hero">
-          {header}
-          <div className="dashboard-status elevated-section">
-            <div className="loading">Please configure your GitHub token.</div>
-          </div>
-        </div>
+        <section className="dashboard-hero elevated-section">
+          {headerRow}
+          <div className="loading">Please configure your GitHub token.</div>
+        </section>
         {settingsOpen && settingsPanel}
       </div>
     );
@@ -386,12 +382,10 @@ export default function Dashboard() {
   if (error && !hasRenderedResults) {
     return (
       <div className="dashboard">
-        <div className="dashboard-hero">
-          {header}
-          <div className="dashboard-status elevated-section">
-            <div className="error">Error: {error}</div>
-          </div>
-        </div>
+        <section className="dashboard-hero elevated-section">
+          {headerRow}
+          <div className="error">Error: {error}</div>
+        </section>
         {settingsOpen && settingsPanel}
       </div>
     );
@@ -400,12 +394,10 @@ export default function Dashboard() {
   if (discovering && !hasRenderedResults) {
     return (
       <div className="dashboard">
-        <div className="dashboard-hero">
-          {header}
-          <div className="dashboard-status elevated-section">
-            <div className="loading">Discovering repositories...</div>
-          </div>
-        </div>
+        <section className="dashboard-hero elevated-section">
+          {headerRow}
+          <div className="loading">Discovering repositories...</div>
+        </section>
         {settingsOpen && settingsPanel}
       </div>
     );
@@ -414,36 +406,28 @@ export default function Dashboard() {
   const loadedRepoCount = repositories.filter(repo => !repo.loading).length;
   const hasBackgroundLoading = loadedRepoCount < matchedRepoCount;
   const refreshingRepoCount = repositories.filter(repo => repo.loading || repo.refreshing).length;
-  const { success, failed, other, openPrs } = getRepositoryStatusCounts(repositories);
+  const { failed, other } = getRepositoryStatusCounts(repositories);
   const sortedRepositories = [...repositories].sort(compareRepositoriesByLatestRun);
 
   return (
     <div className="dashboard">
-      <section className="dashboard-hero">
-        {header}
-        <section className="dashboard-hero-panel elevated-section">
-          {error && (
-            <div className="error dashboard-inline-error">Error: {error}</div>
-          )}
-          <StatsBar
-            totalRepos={matchedRepoCount}
-            success={success}
-            failed={failed}
-            other={other}
-            openPrs={openPrs}
-          />
-          <div className={`dashboard-meta${refreshing ? ' dashboard-meta-refreshing' : ''}`}>
-            {matchedRepoCount === 0
-              ? refreshing
-                ? 'Refreshing repository matches...'
-                : 'No repositories matched the current patterns.'
-              : hasBackgroundLoading
-                ? `Loaded ${loadedRepoCount} of ${matchedRepoCount} repositories`
-                : refreshing
-                  ? `Refreshing ${refreshingRepoCount} of ${matchedRepoCount} repositories`
-                : `Loaded all ${matchedRepoCount} repositories`}
-          </div>
-        </section>
+      <section className="dashboard-hero elevated-section">
+        {headerRow}
+        {error && (
+          <div className="error dashboard-inline-error">Error: {error}</div>
+        )}
+        <StatsBar failed={failed} other={other} />
+        <div className={`dashboard-meta${refreshing ? ' dashboard-meta-refreshing' : ''}`}>
+          {matchedRepoCount === 0
+            ? refreshing
+              ? 'Refreshing repository matches...'
+              : 'No repositories matched the current patterns.'
+            : hasBackgroundLoading
+              ? `Loaded ${loadedRepoCount} of ${matchedRepoCount} repositories`
+              : refreshing
+                ? `Refreshing ${refreshingRepoCount} of ${matchedRepoCount} repositories`
+              : `Loaded all ${matchedRepoCount} repositories`}
+        </div>
       </section>
 
       {settingsOpen && settingsPanel}

@@ -1,24 +1,20 @@
 .stats-bar {
   display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  margin-bottom: 0;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
 .stat-card {
-  flex: 1;
-  min-width: 150px;
-  padding: 1rem 1.5rem;
+  flex: 0 0 auto;
+  padding: 0.5rem 1.2rem;
   border-radius: var(--theme-border-radius);
-  background: radial-gradient(circle at top left, rgba(255, 165, 0, 0.18), transparent 55%),
-    var(--theme-surface);
-  border: 2px solid rgba(255, 165, 0, 0.45);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
 }
 
 .stat-value {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--theme-text-primary);
