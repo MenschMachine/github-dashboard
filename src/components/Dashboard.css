@@ -31,12 +31,18 @@
   color: var(--theme-text-secondary);
 }
 
+.dashboard-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .dashboard-meta {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   color: var(--theme-tertiary);
-  text-align: center;
+  white-space: nowrap;
   transition: opacity 0.2s ease, color 0.2s ease;
 }
 

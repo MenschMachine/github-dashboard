@@ -416,17 +416,19 @@ export default function Dashboard() {
         {error && (
           <div className="error dashboard-inline-error">Error: {error}</div>
         )}
-        <StatsBar failed={failed} other={other} />
-        <div className={`dashboard-meta${refreshing ? ' dashboard-meta-refreshing' : ''}`}>
-          {matchedRepoCount === 0
-            ? refreshing
-              ? 'Refreshing repository matches...'
-              : 'No repositories matched the current patterns.'
-            : hasBackgroundLoading
-              ? `Loaded ${loadedRepoCount} of ${matchedRepoCount} repositories`
-              : refreshing
-                ? `Refreshing ${refreshingRepoCount} of ${matchedRepoCount} repositories`
-              : `Loaded all ${matchedRepoCount} repositories`}
+        <div className="dashboard-hero-stats">
+          <StatsBar failed={failed} other={other} />
+          <span className={`dashboard-meta${refreshing ? ' dashboard-meta-refreshing' : ''}`}>
+            {matchedRepoCount === 0
+              ? refreshing
+                ? 'Refreshing...'
+                : 'No matches.'
+              : hasBackgroundLoading
+                ? `${loadedRepoCount}/${matchedRepoCount} loaded`
+                : refreshing
+                  ? `Refreshing ${refreshingRepoCount}/${matchedRepoCount}`
+                : `${matchedRepoCount} repos`}
+          </span>
         </div>
       </section>
 
