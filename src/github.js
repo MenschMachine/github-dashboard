@@ -31,6 +31,10 @@ export function clearCache() {
   keys.forEach(k => localStorage.removeItem(k));
 }
 
+export function clearRunsCache(repoFullName) {
+  localStorage.removeItem(`gh-cache-runs-${repoFullName}`);
+}
+
 function mapRepository(repo) {
   return {
     full_name: repo.full_name,

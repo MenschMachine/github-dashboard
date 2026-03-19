@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { clearCache, createDashboardClient } from '../github.js';
+import { clearCache, clearRunsCache, createDashboardClient } from '../github.js';
 import StatsBar from './StatsBar';
 import RepositoryCard from './RepositoryCard';
 import AllPrsSection from './AllPrsSection';
@@ -96,6 +96,12 @@ function compareRepositoriesByLatestRun(a, b) {
   if (bLatest !== null) return 1;
 
   return a.name.localeCompare(b.name);
+}
+
+const AUTO_POLL_INTERVAL = 15_000;
+
+function hasActiveRuns(repo) {
+  return repo.workflow_runs.some(run => run.status !== 'completed');
 }
 
 function createPlaceholderRepository(name) {
@@ -256,6 +262,44 @@ export default function Dashboard() {
 
     return () => { cancelled = true; };
   }, [token, repoPatterns, reposTtl, runsTtl, prsTtl, refreshCounter]);
+
+  useEffect(() => {
+    if (!token) return;
+
+    const intervalId = setInterval(() => {
+      const activeRepos = repositoriesRef.current.filter(
+        repo => !repo.loading && !repo.refreshing && hasActiveRuns(repo)
+      );
+
+      if (activeRepos.length === 0) return;
+
+      const client = createDashboardClient(token);
+      const ttlOptions = {
+        runsTtl: runsTtl * 60 * 1000,
+        prsTtl: prsTtl * 60 * 1000,
+      };
+
+      for (const repo of activeRepos) {
+        const [owner, repoName] = repo.name.split('/');
+        clearRunsCache(repo.name);
+
+        client.fetchRepositoryData(
+          { full_name: repo.name, name: repoName, owner: { login: owner } },
+          ttlOptions
+        ).then(result => {
+          setRepositories(prev => prev.map(current =>
+            current.name === repo.name
+              ? { ...current, ...result, loading: false, refreshing: false, error: null }
+              : current
+          ));
+        }).catch(() => {
+          // silently ignore polling errors
+        });
+      }
+    }, AUTO_POLL_INTERVAL);
+
+    return () => clearInterval(intervalId);
+  }, [token, runsTtl, prsTtl]);
 
   function handleSave() {
     localStorage.setItem(LS_TOKEN_KEY, draftToken);
