@@ -33,6 +33,9 @@
 
 .all-prs-list {
   margin-top: 0.6rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .all-pr-item {
@@ -120,11 +123,9 @@
 }
 
 .all-prs-label-group {
-  margin-top: 0.5rem;
-}
-
-.all-prs-label-group:first-child {
-  margin-top: 0;
+  flex: 1 1 280px;
+  min-width: 280px;
+  max-width: 450px;
 }
 
 .all-prs-group-toggle {
