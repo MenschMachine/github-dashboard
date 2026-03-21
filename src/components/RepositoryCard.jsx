@@ -70,16 +70,6 @@ export default function RepositoryCard({
 
   const repoUrl = `https://github.com/${repoName}`;
   const hasContent = last5.length > 0 || prs.length > 0;
-  const statusClassName = loading
-    ? 'status-loading'
-    : refreshing
-      ? 'status-refreshing'
-      : 'status-error';
-  const statusLabel = loading
-    ? 'Loading'
-    : refreshing
-      ? 'Refreshing'
-      : 'Unavailable';
 
   return (
     <div
@@ -96,10 +86,16 @@ export default function RepositoryCard({
             {repoName}
           </a>
         </div>
-        {(loading || refreshing || error) && (
-          <div className={`status-info ${statusClassName}`}>
-            {statusLabel}
+        {loading && (
+          <div className="status-info status-loading">Loading</div>
+        )}
+        {refreshing && (
+          <div className="status-info status-refreshing">
+            <span className="refresh-icon-spinning">&#8635;</span>
           </div>
+        )}
+        {error && !loading && !refreshing && (
+          <div className="status-info status-error">Unavailable</div>
         )}
       </div>
 
