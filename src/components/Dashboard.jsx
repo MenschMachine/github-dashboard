@@ -391,12 +391,12 @@ export default function Dashboard() {
       <h1 className="dashboard-title">GitHub Actions Dashboard</h1>
       <div className="header-buttons">
         <button
-          className={`settings-toggle${refreshing || discovering ? ' settings-toggle-spinning' : ''}`}
+          className="settings-toggle"
           onClick={handleRefresh}
           aria-label="Refresh"
           title={refreshing || discovering ? 'Refreshing' : 'Clear cache and refresh'}
         >
-          &#8635;
+          <span className={refreshing || discovering ? 'refresh-icon-spinning' : ''}>&#8635;</span>
         </button>
         <button
           className="settings-toggle"

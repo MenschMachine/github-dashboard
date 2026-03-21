@@ -118,8 +118,9 @@
   color: var(--theme-text-primary);
 }
 
-.settings-toggle-spinning {
+.refresh-icon-spinning {
   animation: dashboard-refresh-spin 0.9s linear infinite;
+  display: inline-block;
 }
 
 .settings-panel {
