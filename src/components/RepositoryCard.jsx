@@ -87,7 +87,9 @@ export default function RepositoryCard({
           </a>
         </div>
         {loading && (
-          <div className="status-info status-loading">Loading</div>
+          <div className="status-info status-loading">
+            <span className="refresh-icon-spinning">&#8635;</span>
+          </div>
         )}
         {refreshing && (
           <div className="status-info status-refreshing">
